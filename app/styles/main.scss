@@ -1,0 +1,380 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+@import 'sass-bootstrap/lib/bootstrap';
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+   /* border-bottom: 1px solid #e5e5e5;*/
+    position: fixed;
+    border: none;
+    z-index: 2;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.slidetext{
+    height: 40px;
+    overflow-y: scroll;
+}
+
+
+
+/* Demo Styles */
+body {
+/*
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+*/
+
+  font-family: 'Cantarell', sans-serif;
+    font-size: 17px;
+    line-height: 23px;  
+
+  height:  100%;
+    margin:  0px auto;
+   padding: 0px auto;
+}
+
+p{
+
+    font-family: 'Cantarell', sans-serif;
+    font-size: 17px;
+    line-height: 23px;  
+}
+
+.swiper-scrollbar {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  z-index: 1;
+}
+
+.swiper-container {
+ // height: auto !important; /*min-height hack*/
+ // height: 100%;            /*min-height hack*/
+ height: 600px;
+    margin:     0px auto;
+    padding:    0px auto;
+  color: #fff;
+  text-align: center;
+  //width: 3600px;
+}
+.swiper-nested {
+  width: 100%;
+}
+
+.full-slide{
+ //   height: 600px;
+ //   width: 320px;
+}
+.red-slide {
+  background: #ca4040;
+}
+.blue-slide {
+  background: #4390ee;
+
+}
+
+.orange-slide {
+  background: #ff8604;
+}
+.green-slide {
+  background: #49a430;
+}
+.pink-slide {
+  background: #973e76;
+}
+/*
+.swiper-nested .red-slide {
+  background-color: #ca4040;
+  background-image: url("../images/portfolio/Glamour1.png");
+  background-size: cover;
+
+}
+
+.swiper-nested .blue-slide {
+  background-color: #4390ee;
+
+    
+  background-image: url("../images/portfolio/medcogamechangers.jpg");
+  background-size: cover;
+ // -webkit-filter: grayscale(100%);
+
+}
+
+.swiper-nested .orange-slide {
+  background-color: #ff8604;
+  background-image: url("../images/portfolio/Playhouse.jpg");
+  background-size: cover;
+
+}
+
+.swiper-nested .green-slide {
+  background-color: #49a430;
+  background-image: url("../images/portfolio/ThomasNet2010.jpg");
+  background-size: cover;
+
+}
+.swiper-nested .pink-slide {
+  background-color: #973e76;
+  background-image: url("../images/portfolio/ThomasNetJunk.jpg");
+  background-size: cover;
+
+}
+*/
+
+
+
+.swiper-slide {
+  font-style: italic;
+  font-size: 42px;
+  margin-bottom: 0;
+  line-height: 250px;
+  width: 320px;
+}
+.swiper-nested .swiper-slide {
+  line-height: 125px;
+  font-size: 21px
+}
+.pagination {
+  position: absolute;
+  z-index: 100;
+  left: 10px;
+  bottom: 10px;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-visible-switch {
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+.pagination-nested{
+  bottom: auto;
+  top: 10px;
+}
+.pagination-nested .swiper-pagination-switch {
+  display: block;
+  margin-right: 0;
+  margin-bottom: 5px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+    background-color: lightslategrey;
+    margin: 10px;
+   
+}
+
+#greeting{
+    width: 600px;
+}
+
+#intro{
+    padding: 200px 0;
+}
+
+.view {
+    width: 100%;
+    height: 200px;
+  //  margin: 10px;
+    float: left;
+    border: 10px solid #fff;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+   // box-shadow: 1px 1px 2px #e6e6e6;
+    cursor: default;
+    background: #fff url(../images/bgimg.jpg) no-repeat center center
+}
+.view .mask, .view .content {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+.view img {
+    display: block;
+    position: relative
+}
+.view h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px 0 0 0
+}
+.view p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+.view a.info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 1px #000
+}
+.view a.info:hover {
+    box-shadow: 0 0 5px #000
+}
+
+.view-first img { 
+    transition: all 0.2s linear;
+}
+.view-first .mask {
+    opacity: 0;
+    background-color: rgba(219,127,8, 0.7); 
+    transition: all 0.4s ease-in-out;
+}
+.view-first h2 {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.view-first p { 
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+.view-first a.info{
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+/*
+.view-first:hover img { 
+    transform: scale(1.1);
+} 
+
+.view-first:hover .mask { 
+    opacity: 1;
+}
+
+
+.view-first:hover h2,
+.view-first:hover p,
+.view-first:hover a.info {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.view-first:hover p {
+    transition-delay: 0.1s;
+}
+
+.view-first:hover a.info {
+    transition-delay: 0.2s;
+}
+
+*/
+
+
+
+.swiper-slide-active .view-first img { 
+    transform: scale(1.1);
+} 
+
+
+
+.swiper-slide-active .view-first .mask { 
+    opacity: 1;
+}
+
+
+.swiper-slide-active .view-first h2,
+.swiper-slide-active .view-first p,
+.swiper-slide-active .view-first a.info {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+.swiper-slide-active .view-first p {
+    transition-delay: 0.1s;
+}
+
+
+
+.swiper-slide-active .view-first a.info {
+    transition-delay: 0.2s;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
