@@ -129,7 +129,19 @@
               <div class="pagination pagination-nested"></div>
               <div class="swiper-wrapper">
                 
-                <div class="swiper-slide pink-slide">Vertical Slide 1</div>
+                <div class="swiper-slide pink-slide">
+                    <!-- copy and paste this code wherever you'd like the __TV to appear -->
+                    <!-- it will automatically resize to match its container -->
+                    <div id="_giphy_tv"></div>
+                    <script>
+                    var _giphy_tv_tag="giphytv";
+                    var g = document.createElement('script'); g.type = 'text/javascript'; g.async = true;
+                    g.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'giphy.com/static/js/widgets/tv.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(g, s);
+                    </script>
+
+
+                </div>
                 <div class="swiper-slide green-slide">Vertical Slide 2</div>
                 <div class="swiper-slide blue-slide">Vertical Slide 3</div>
                 <div class="swiper-slide pink-slide">Vertical Slide 4</div>
