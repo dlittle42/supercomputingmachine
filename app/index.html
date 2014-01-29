@@ -13,8 +13,8 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
-        <link href='http://fonts.googleapis.com/css?family=Nixie+One|Arvo:400,700,400italic,700italic|Cantarell:400,400italic' rel='stylesheet' type='text/css'>
-        <!-- build:js scripts/vendor/modernizr.js -->
+      <!--  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Cantarell:400,700' rel='stylesheet' type='text/css'> -->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Quicksand:400,700|Source+Code+Pro|Cantarell' rel='stylesheet' type='text/css'><!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
 
@@ -24,14 +24,28 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-      <div class="page-container">
+      <div class="container flex">
           <div class="header">
-               <div class="circle">Super Computing Machine</div>
+          <!--
+               <div class="circle unselectable" id="logo"><h1>Super Computing Machine</h1></div>
+            -->
+
+
+               <div class="logo unselectable">
+                    <div id="symbol">
+                        
+                        <div id="leftcircle" class="halfCircleLeft"><h1>Super Computing Machine</h1></div>
+                        <div id="rightcircle" class="halfCircleRight"></div>
+                    </div>
+
+               </div>
           </div>
-          <div id="greeting">
-            <h1>Hello there.</h1>
-            <p>It's a fine day for parcheesi.</p>
-          </div>
+         
+            <div id="greeting" class="">
+              <h2 id="salutation">Hello there.</h2>
+              <p id="comment">It's a fine day for parcheesi.</p>
+            </div>
+  
 
       </div>
 
