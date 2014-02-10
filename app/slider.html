@@ -6,157 +6,619 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>hi there4</title>
+        <title>Super Computing Machine</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, user-scalable=0, minimal-ui">
+        <!--
+        <meta name="viewport" content="width=device-width, user-scalable=0">
+        -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/idangerous.swiper.css">
         <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css">
         <link rel="stylesheet" href="styles/slider.css">
+        <!-- Owl Carousel Assets -->
+
+         <link href="scripts/owl-carousel/owl.carousel.css" rel="stylesheet">
+         <link href="scripts/owl-carousel/owl.theme.css" rel="stylesheet">
+  <!--
+        <link href="styles/looper.css" rel="stylesheet">
+
+        <link type="text/css" rel="stylesheet" href="styles/rhinoslider-1.05.css">
+        -->
         <!-- endbuild -->
-        <link href='http://fonts.googleapis.com/css?family=Nixie+One|Arvo:400,700,400italic,700italic|Cantarell:400,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Quicksand:400,700|Source+Code+Pro|Cantarell' rel='stylesheet' type='text/css'>
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
 
     </head>
-    <body>
+    <body class="colorize highlight">
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
       <div class="page-container">
         <div class="header">
-               
-                <div class="circle">home</div>
-            </div>
+            <!--
+               <div class="circle unselectable" id="logo"><h1>Super Computing Machine</h1></div>
+             -->
 
-      <div class="swiper-container swiper-parent ">
+
+               <div class="logo unselectable">
+                    <div id="symbol">
+
+                        <div id="leftcircle" class="halfCircleLeft"><h1>Super Computing Machine</h1></div>
+                        <div id="rightcircle" class="halfCircleRight"></div>
+                    </div>
+
+               </div>
+            </div> <!-- end header -->
+
+      <div class="swiper-container swiper-parent">
         <div class="pagination pagination-parent"></div>
         <div class="swiper-wrapper">
-          <div class="swiper-slide red-slide" id="greeting">
-            <h1>Hello.</h1>
-        </div>
-          <div class="swiper-slide green-slide full-slide" id="intro">
-              <p>"What can I help you with today?" says the Super Computing Machine.</p>
+          <div class="swiper-slide yellow-slide full-slide color" id="greeting-column">
+              <div id="hello">
+                <h2 id="salutation">Hello there.</h2>
+                <p id="comment">It's a fine day for parcheesi.</p>
+              </div>
           </div>
-          <div class="swiper-slide full-slide">
-            <div class="swiper-container swiper-nested" id="swiper-nested1">
+          <div class="swiper-slide full-slide" id="column2">
+            <div class="swiper-container swiper-nested" id="swiper-nested0">
               <div class="pagination pagination-nested"></div>
               <div class="swiper-wrapper">
-                <div class="swiper-slide green-slide">Vertical Slide 1</div>
-                <div class="swiper-slide blue-slide">Vertical Slide 2</div>
-                <div class="swiper-slide pink-slide">Vertical Slide 3</div>
-                <div class="swiper-slide green-slide">Vertical Slide 4</div>
-                <div class="swiper-slide blue-slide">Vertical Slide 5</div>
-                <div class="swiper-slide pink-slide">Vertical Slide 6</div>
+                <div class="swiper-slide orange-slide">
+          
+                   <h3>Experiment: Speaking in color with the Web Speech API</h3>  
+                   <p>2014 - Week 1 - Thursday</p>
+                      
+                      
+              
+                </div>
+                <div class="swiper-slide orange-slide">
+                 
+                   <h3>Experiment: Sing it again, computer</h3>  
+                   <p>2014 - Week 2 - Friday</p>
+                      
+             
+                </div>
+                <div class="swiper-slide orange-slide">
+
+                    <h3>Experiment: Speaking in color with the Web Speech API</h3>  
+                    <p>2014 - Week 3 - Thursday</p>
+
+                </div>
+                <div class="swiper-slide orange-slide">
+
+                    <h3>Experiment: Drawing in Space</h3>  
+                    <p>2014 - Week 4 - Wednesday</p>
+
+                </div>
+                <div class="swiper-slide orange-slide">
+
+                    <h3>PNG Crunch</h3>  
+                    <p>2014 - Week 5 - Tuesday</p>
+                    
+                </div>
+                <div class="swiper-slide orange-slide">
+                  <div class="view view-first">  
+                       <div class="view view-first">  
+                       
+                       <h2>More posts? Y/N</h2>  
+                      
+                      
+                  </div> 
+                      
+                  </div>
+                </div>
               </div>
 
             </div>
           </div>
-          <div class="swiper-slide full-slide">
+          <div class="swiper-slide full-slide" id="column3">
+            <div class="swiper-container swiper-nested" id="swiper-nested1">
+              <div class="pagination pagination-nested"></div>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide blue-slide">
+                <div class="view view-first"> 
+<!--
+                     <ul id="slider" class="rhino">
+                        <li><img src="images/bg.png" data-src="assets/owl1.jpg" alt=""></li>
+                        <li><img src="images/bg.png" data-src="assets/owl2.jpg" alt=""></li>
+                        <li><img src="images/bg.png" data-src="assets/owl3.jpg" alt=""></li>
+                    </ul>
+        -->
+             
+                    <div id="owl-demo" class="owl-carousel">
+                   <!--
+                      <div class="item"><img src="assets/owl1.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl2.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl2.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                  -->
+                    
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl1.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl2.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl1.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl2.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img src="assets/owl1.jpg" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+            
+                    </div>
+                 
+                    <div class="mask">  
+                       <h2>DisneyVisa.com</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                  </div>
+                <!--
+                  <div class="view view-first">  
+                       <img src="images/portfolio/dvisa.png" />  
+                       <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>DisneyVisa.com</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                      
+                  </div>
+
+                  -->
+                </div>
+                <div class="swiper-slide pink-slide">
+                  <div class="view view-first">  
+
+                  <!-- anoslider 
+                  <div class="carousel">
+                      <a class="prev"></a>
+                      <ul>
+                        <li><img src="images/bg.png" data-src="assets/owl1.jpg" alt=""></li>
+                        <li><img src="images/bg.png" data-src="assets/owl2.jpg" alt=""></li>
+                        <li><img src="images/bg.png" data-src="assets/owl3.jpg" alt=""></li>
+                      </ul>
+                      <a class="next"></a>
+                  ->
+                  <!--
+                     <ul class="rslides" id="slider1">
+                      <li><img src="images/bg.png" data-src="assets/owl1.jpg" alt=""></li>
+                      <li><img src="images/bg.png" data-src="assets/owl2.jpg" alt=""></li>
+                      <li><img src="images/bg.png" data-src="assets/owl3.jpg" alt=""></li>
+                    </ul>
+                
+                       <div id="owl-demo" class="owl-carousel">
+                        <div class="item"><img class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl1.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl2.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl1.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl2.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+                     
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
+                      <div class="item"><img class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                    </div>
+
+                  -->
+                       <div class="mask">  
+                       <h2>Disney Parks: Carsland</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>
+                      
+                  </div>
+                </div>
+                <div class="swiper-slide green-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/tru.png" />  
+                        <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Birthdaysrus.com</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                     
+                  </div>
+                </div>
+                <div class="swiper-slide green-slide">
+                  <div class="view view-first">  
+          
+                    
+                    
+                       <h2>WEBSITES</h2>  
+                       <h3>All of these things an more have i made. It is a veritable cornucopia of dreams.</h3>  
+                          
+                      
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide blue-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/dvisa.png" />  
+                        <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Title</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide pink-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/carsland.png" />  
+                        <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Title</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                      
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="swiper-slide full-slide" id="column4">
             <div class="swiper-container swiper-nested" id="swiper-nested2">
               <div class="pagination pagination-nested"></div>
               <div class="swiper-wrapper">
                 
                 <div class="swiper-slide blue-slide">
                   <div class="view view-first">  
-                       <img src="images/portfolio/Glamour1.png" />  
+                       <img src="images/portfolio/contwix.png" />  
+                       <div class="arrow-down"></div>
                        <div class="mask">  
-                       <h2>Title</h2>  
-                       <p>Your Text</p>  
+                       <h2>Contwix</h2>  
+                       <p>An application using Natural Language Processesing on RSS feeds, analyzing content for keywords and searching for related tweets on Twitter. This particular prototype featured New York Magazine content, but versions were also pitched for NBC Sports, New York Times and Thomasnet.com.</p>  
                            <a href="#" class="info">Read More</a>  
                        </div>  
-                  </div>
-                </div>
-                <div class="swiper-slide pink-slide">
-                  <div class="view view-first">  
-                       <img src="images/portfolio/Playhouse.jpg" />  
-                       <div class="mask">  
-                       <h2>Title</h2>  
-                       <p>Your Text</p>  
-                           <a href="#" class="info">Read More</a>  
-                       </div>  
-                  </div>
-                </div>
-                <div class="swiper-slide green-slide">
-                  <div class="view view-first">  
-                       <img src="images/portfolio/medcogamechangers.jpg" />  
-                       <div class="mask">  
-                       <h2>Title</h2>  
-                       <p>Your Text</p>  
-                           <a href="#" class="info">Read More</a>  
-                       </div>  
+                      
                   </div>
                 </div>
                 <div class="swiper-slide blue-slide">
                   <div class="view view-first">  
-                       <img src="images/portfolio/Glamour1.png" />  
-                       <div class="mask">  
-                       <h2>Title</h2>  
-                       <p>Your Text</p>  
-                           <a href="#" class="info">Read More</a>  
-                       </div>  
+          
+                    <!--
+                    
+                       <h2>APPS</h2>  
+                       <p>All of these things an more have i made. It is a veritable cornucopia of dreams.</p> 
+                       -->
+                       <!--
+                       <div data-looper="go" class="looper xfade"> 
+                          <div class="looper-inner">
+                              <div class="item">
+                                  <img src="http://lorempixel.com/320/240/sports" alt="">
+                              </div>
+                              <div class="item">
+                                  <img src="http://lorempixel.com/320/240/animals" alt="">
+                              </div>
+                              <div class="item">
+                                  <img src="http://lorempixel.com/320/240/food" alt="">
+                              </div>
+                          </div>
+                        </div>
+                        -->
+                          <!--
+                          <ul class="rslides" id="slider1">
+
+                            <li><img src="images/bg.png" data-src="assets/owl1.jpg" alt=""></li>
+                            <li><img src="images/bg.png" data-src="assets/owl2.jpg" alt=""></li>
+                            <li><img src="images/bg.png" data-src="assets/owl3.jpg" alt=""></li>
+                          </ul>
+                          -->
+                    
                   </div>
                 </div>
                 <div class="swiper-slide pink-slide">
                   <div class="view view-first">  
-                       <img src="images/portfolio/Playhouse.jpg" />  
+                  <!--
+                        <div class="looper xfade"> 
+                          <div class="looper-inner">
+                              <div class="item">
+                                  
+                                  <img src="images/bg.png" data-src="http://lorempixel.com/320/240/sports" alt="">
+                              </div>
+                              <div class="item">
+                                  <img src="images/bg.png" data-src="http://lorempixel.com/320/240/animals" alt="">
+                              </div>
+                              <div class="item">
+                                  <img src="images/bg.png" data-src="http://lorempixel.com/320/240/food" alt="">
+                              </div>
+                          </div>
+                        </div>
+                  -->
+                  <!--
+                       <img src="images/portfolio/santa.gif" />  
+                       <div class="arrow-down"></div>
                        <div class="mask">  
-                       <h2>Title</h2>  
-                       <p>Your Text</p>  
+                       <h2>Big Air Santa</h2>  
+                       <p>An iOS game </p>  
                            <a href="#" class="info">Read More</a>  
-                       </div>  
+                       </div>
+                      -->
                   </div>
                 </div>
                 <div class="swiper-slide green-slide">
                   <div class="view view-first">  
-                       <img src="images/portfolio/medcogamechangers.jpg" />  
+                       <img src="images/portfolio/portfoliobuilder.png" />  
+                       <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Portfolio Builder</h2>  
+                       <p>A web application allowing anyone at True North Inc to find past projects in the portfolio library and assemble a showcase site for clients.</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                     
+                  </div>
+                </div>
+                
+                <div class="swiper-slide blue-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/contwix.png" />  
+                       <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Glamour Fashion Forecast</h2>  
+                       <p>A web application for Glamour.com which recommends outfits based on the weather and your mood and destination.</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide pink-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/santa.png" />  
+                       <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Werewolf Yourself</h2>  
+                       <p>A Facebook application for ABC Family which allowed you to make your picture into a werewolf and send to your friends.</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                      
+                  </div>
+                </div>
+                <div class="swiper-slide green-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/portfoliobuilder.png" />  
+                       <div class="arrow-down"></div>
                        <div class="mask">  
                        
-                       </div>  
+                      
                        <h2>Title</h2>  
                        <p>Your Text</p>  
-                           <a href="#" class="info">Read More</a>  
+                           <a href="#" class="info">Read More</a> 
+
+                       </div>  
+                      
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide full-slide">
+          <div class="swiper-slide full-slide" id="column5">
             <div class="swiper-container swiper-nested" id="swiper-nested3">
               <div class="pagination pagination-nested"></div>
               <div class="swiper-wrapper">
-                
-                <div class="swiper-slide pink-slide">
-                    <!-- copy and paste this code wherever you'd like the __TV to appear -->
-                    <!-- it will automatically resize to match its container -->
-                    <div id="_giphy_tv"></div>
-                    <script>
-                    var _giphy_tv_tag="giphytv";
-                    var g = document.createElement('script'); g.type = 'text/javascript'; g.async = true;
-                    g.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'giphy.com/static/js/widgets/tv.js';
-                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(g, s);
-                    </script>
-
-
+                <div class="swiper-slide blue-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/dvisa.png" />  
+                       <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Title</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                      
+                  </div>
                 </div>
-                <div class="swiper-slide green-slide">Vertical Slide 2</div>
-                <div class="swiper-slide blue-slide">Vertical Slide 3</div>
-                <div class="swiper-slide pink-slide">Vertical Slide 4</div>
-                <div class="swiper-slide green-slide">Vertical Slide 5</div>
-                <div class="swiper-slide blue-slide">Vertical Slide 6</div>
+                <div class="swiper-slide pink-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/carsland.png" />  
+                       <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Title</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>
+                      
+                  </div>
+                </div>
+                <div class="swiper-slide green-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/tru.png" />  
+                        <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Title</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                     
+                  </div>
+                </div>
+                <div class="swiper-slide orange-slide">
+                  <div class="view view-first">  
+          
+                    
+                    
+                       <h2>ADS</h2>  
+                       <p>All of these things an more have i made. It is a veritable cornucopia of dreams.</p>  
+                          
+                      
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide blue-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/dvisa.png" />  
+                        <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Title</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide pink-slide">
+                  <div class="view view-first">  
+                       <img src="images/portfolio/carsland.png" />  
+                        <div class="arrow-down"></div>
+                       <div class="mask">  
+                       <h2>Title</h2>  
+                       <p>Your Text</p>  
+                           <a href="#" class="info">Read More</a>  
+                       </div>  
+                      
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
-          <div class="swiper-slide orange-slide full-slide"> 
-            Slide 5 
-            <div class="slidetext"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras euismod laoreet nisi, sit amet pellentesque dolor convallis et. Nulla vehicula volutpat nibh, nec tincidunt nibh aliquam eget. Aliquam rhoncus cursus eros, eget rutrum purus accumsan in. Nulla tincidunt lorem vitae nisl consequat condimentum. Morbi nec luctus lorem. Nulla non neque nulla. Fusce lacinia lacus tellus, et auctor purus mollis eu.</p></div>
+          <div class="swiper-slide full-slide red-slide" id="column6">
+            <div class="swiper-container swiper-nested" id="swiper-nested4">
+              <div class="pagination pagination-nested"></div>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="view view-first">  
+                       
+                       <h2>INFORMATION.</h2>  
+                       <p>Behind the 36 MHz power of Super Computing Machine is <b>Derek Little</b>, a Creative Technologist with a passion for exploring emerging technologies and developing intelligent and engaging user experiences.</p>
+                      
+                      
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  
+                       <h2>SPECS.</h2>  
+                       <ul>
+                          <li>HTML5 / CSS3 / JS</li>
+                          <li>jQuery</li>
+                          <li>Objective-C</li>
+                          <li>AS3</li>
+                          <li>Node.js</li>
+                          <li>PHP</li>
+                          <li>Wordpress</li>
+                          <li>Python</li>
+                          <li>MySQL / MongoDB / CouchDB</li>
+                          <li>Processing / Arduino</li>
+                          <li>That next thing...</li>
+                        </ul>
+                      
+                      
+                </div>
+                <div class="swiper-slide">
+                  <div class="view view-first">  
+                       <div class="view view-first">  
+                       
+                       <h2>ROLES.</h2>  
+                        <ul>
+                          <li>Designer</li>
+                          <li>Developer</li>
+                          <li>Coder</li>
+                          <li>Art Director</li>
+                          <li>Researcher</li>
+                          <li>User Experience Architect</li>
+                          <li>Project Manager</li>
+                          <li>Creative Director</li>
+                          <li>Creative Technologist</li>
+                          <li>Scientist?</li>
+                          <li>Astronaut?</li>
+                          <li>BioEngineer?</li>
+                          <li>Time Hacker?</li>
+                        </ul>
+
+                        <ul>
+                          <li>Linkedin link here.</li>
+                          <li>Twitter link here.</li>
+                        </ul>
+                      
+                  </div>
+                     
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="view view-first">  
+                       <div class="view view-first">  
+                       
+                       <h2>END OF LINE_</h2>  
+                      
+                      
+                  </div>
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="view view-first">  
+                       <div class="view view-first">  
+                       
+                       <h2>REBOOT</h2>  
+                      
+                      
+                  </div> 
+                      
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div class="swiper-slide green-slide full-slide"> Slide 6 </div>
-          <div class="swiper-slide pink-slide full-slide"> Slide 7 </div>
+         
+          <div class="swiper-slide orange-slide full-slide" id="column7"> 
+              <h2>Let's communicate.</h2>
+              <form id="nl-form" class="nl-form">
+               My name is 
+                <input type="text" value="" placeholder="first" />
+                <input type="text" value="" placeholder="last" />
+                and I am interested in
+                <br />
+                <select>
+                  <option value="1" selected>this kind of project</option>
+                  <option value="2">websites</option>
+                  <option value="3">games</option>
+                  <option value="4">apps</option>
+                  <option value="2">chatting</option>
+                </select>.
+                <br>
+                Please contact me at <input type="text" value="" placeholder="your_email@domain.com" data-subline="For example: <em>Los Angeles</em> or <em>New York</em>"/>
+                <div class="nl-submit-wrap">
+                  <button class="nl-submit" type="submit">Submit: Y/N ? </button>
+                </div>
+                <div class="nl-overlay"></div>
+              </form>
+
+           </div>
+          <!--
+          <div class="swiper-slide info-slide full-slide"> Slide 7 </div>
           <div class="swiper-slide blue-slide full-slide"> Slide 8 </div>
+          -->
         </div>
 
       </div>

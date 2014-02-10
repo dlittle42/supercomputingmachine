@@ -1,6 +1,7 @@
 require.config({
     paths: {
         jquery: '../bower_components/jquery/jquery',
+        /*
         bootstrapAffix: '../bower_components/sass-bootstrap/js/affix',
         bootstrapAlert: '../bower_components/sass-bootstrap/js/alert',
         bootstrapButton: '../bower_components/sass-bootstrap/js/button',
@@ -11,11 +12,19 @@ require.config({
         bootstrapTab: '../bower_components/sass-bootstrap/js/tab',
         bootstrapTooltip: '../bower_components/sass-bootstrap/js/tooltip',
         bootstrapTransition: '../bower_components/sass-bootstrap/js/transition',
-        swiper: 'idangerous.swiper-2.1.min',
-        swiperScrollbar: 'idangerous.swiper.scrollbar-2.1'
+        */
+        touche: 'touche.min',
+        swiper: 'idangerous.swiper',
+        swiperScrollbar: 'idangerous.swiper.scrollbar-2.1',
+        owl: 'owl-carousel/owl.carousel',
+      //  unveil: 'jquery.unveil.min',
+       // looper: 'looper',
+       // rhino: 'rhinoslider-1.05',
+        //anoslide: 'jquery.anoslide'
+        //responsiveSlides: 'responsiveslides'
     },
     shim: {
-        bootstrapAffix: {
+      /*  bootstrapAffix: {
             deps: ['jquery']
         },
         bootstrapAlert: {
@@ -44,19 +53,57 @@ require.config({
         },
         bootstrapTransition: {
             deps: ['jquery']
+        },*/
+        touche: {
+            deps: ['jquery']
         },
         swiper: {
             deps: ['jquery']
         },
         swiperScrollbar: {
             deps: ['swiper']
+        },
+        owl: {
+            deps: ['jquery']
         }
+        /*
+        unveil: {
+            deps: ['jquery']
+        },
+        
+  
+        looper: {
+            deps: ['jquery']
+        },
+        rhino: {
+            deps: ['jquery']
+        },
+       
+        anoslide: {
+            deps: ['jquery']
+        }
+         */
     }
 });
 
-require(['app', 'swiper','swiperScrollbar','jquery'], function (app, swiper, scrollbar, $) {
+require(['app', 'touche', 'swiper','swiperScrollbar','owl','jquery'], function (app, touche, swiper, scrollbar, owl, $) {
     'use strict';
     // use app here
+  
+   
+    /*
+    $('.carousel ul').anoSlide(
+    {
+        items: 1,
+        speed: 500,
+        prev: 'a.prev',
+        next: 'a.next',
+        lazy: true,
+        auto: 4000
+    })
+*/
+
     console.log(app);
+    console.log(swiper);
     console.log('Running jQuery %s', $().jquery);
 });

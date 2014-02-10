@@ -194,14 +194,14 @@ function initSimple(){
 			slides = 1;
 			vertonly = false;
 		} else { 
-			alert('No Touch Screen');
+			//alert('No Touch Screen');
 			slides = 3;
 			vertonly = true;
 		}
 
 
 		if (vertonly == false){
-			$('.swiper-container').css({'width':'100%'});
+			$('.swiper-container').css({'width':'100%', 'height':'100%'});
 		  var swiperParent = new Swiper('.swiper-parent',{
 		  //  pagination: '.pagination-parent',
 		  //  paginationClickable: true,
@@ -239,7 +239,7 @@ function initSimple(){
 	 //   mousewheelControl: true,
 	  //  mousewheelControlForceToAxis: true,
 	    loop: true,
-	    slidesPerView: 2,
+	    slidesPerView: 4,
 	    
 	    onSlideClick: function(swiper){
 	      //alert('Hello '+ swiperNested1.clickedSlideIndex);
@@ -255,7 +255,8 @@ function initSimple(){
 	  //  mousewheelControl: true,
 	  //  mousewheelControlForceToAxis: true,
 	    loop: true,
-	    slidesPerView: 3
+	    slidesPerView: 4
+	    //slidesPerView: slides
 	  });
 	  var swiperNested3 = new Swiper('#swiper-nested3',{
 	    mode: 'vertical',
@@ -293,9 +294,9 @@ function initSimple(){
 
 define(['swiper', 'swiperScrollbar'], function (swiper) {
     //'use strict';
-    $('body').scrollTop(1);
+   // $('body').scrollTop(1);
 	initSimple();
-	//initSwiper();
+	initSwiper();
 	
 	
 });

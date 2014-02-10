@@ -44,7 +44,7 @@ body{
 .container{
   border: 1px green solid;
   width: 100%;
-  height: 100v%;
+  height: 100%;
   padding:0px;
 }
 
@@ -391,10 +391,10 @@ body{
 .pink-slide {
   background: #973e76;
 }
-/*
+
 .swiper-nested .red-slide {
   background-color: #ca4040;
-  background-image: url("../images/portfolio/Glamour1.png");
+  background-image: url("../images/portfolio/dvisa.png");
   background-size: cover;
 
 }
@@ -403,12 +403,12 @@ body{
   background-color: #4390ee;
 
     
-  background-image: url("../images/portfolio/medcogamechangers.jpg");
+  background-image: url("../images/portfolio/dvisa.png");
   background-size: cover;
  // -webkit-filter: grayscale(100%);
 
 }
-
+/*
 .swiper-nested .orange-slide {
   background-color: #ff8604;
   background-image: url("../images/portfolio/Playhouse.jpg");
@@ -444,7 +444,7 @@ body{
 
 }
 .swiper-nested .swiper-slide {
-  line-height: 125px;
+  //line-height: 125px;
   font-size: 21px
 }
 .pagination {
@@ -497,20 +497,20 @@ body{
 
 .view {
     width: 100%;
-    height: 200px;
+    height: 300px;
   //  margin: 10px;
     float: left;
-    border: 10px solid #fff;
+    //border: 10px solid #fff;
     overflow: hidden;
     position: relative;
     text-align: center;
    // box-shadow: 1px 1px 2px #e6e6e6;
     cursor: default;
-    background: #fff url(../images/bgimg.jpg) no-repeat center center
+  //  background: #fff url(../images/bgimg.jpg) no-repeat center center
 }
 .view .mask, .view .content {
     width: 100%;
-    height: 200px;
+    height: 300px;
     position: absolute;
     overflow: hidden;
     top: 0;
@@ -556,39 +556,43 @@ body{
     transition: all 0.2s linear;
 }
 .view-first .mask {
-    opacity: 0;
-    background-color: rgba(219,127,8, 0.7); 
+    //opacity: 0;
+   // background-color: rgba(219,127,8, 0.7); 
+   // transition: all 0.4s ease-in-out;
+
+    background-color: rgba(78, 168, 6, 0.86);
+    -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
 .view-first h2 {
-    transform: translateY(-100px);
-    opacity: 0;
+   // transform: translateY(-100px);
+   // opacity: 0;
     transition: all 0.2s ease-in-out;
 }
 .view-first p { 
-    transform: translateY(100px);
-    opacity: 0;
+   // transform: translateY(100px);
+   // opacity: 0;
     transition: all 0.2s linear;
 }
 .view-first a.info{
-    opacity: 0;
+    //opacity: 0;
     transition: all 0.2s ease-in-out;
 }
-/*
+
 .view-first:hover img { 
     transform: scale(1.1);
 } 
 
 .view-first:hover .mask { 
-    opacity: 1;
+    //opacity: 1;
 }
 
 
 .view-first:hover h2,
 .view-first:hover p,
 .view-first:hover a.info {
-    opacity: 1;
-    transform: translateY(0px);
+   // opacity: 1;
+   // transform: translateY(0px);
 }
 
 .view-first:hover p {
@@ -599,7 +603,7 @@ body{
     transition-delay: 0.2s;
 }
 
-*/
+
 
 
 
