@@ -17,6 +17,7 @@ require.config({
         swiper: 'idangerous.swiper',
         swiperScrollbar: 'idangerous.swiper.scrollbar-2.1',
         owl: 'owl-carousel/owl.carousel',
+        fader: 'jquery.easyfader'
       //  unveil: 'jquery.unveil.min',
        // looper: 'looper',
        // rhino: 'rhinoslider-1.05',
@@ -65,6 +66,9 @@ require.config({
         },
         owl: {
             deps: ['jquery']
+        },
+        fader: {
+            deps: ['jquery']
         }
         /*
         unveil: {
@@ -86,7 +90,7 @@ require.config({
     }
 });
 
-require(['app', 'touche', 'swiper','swiperScrollbar','owl','jquery'], function (app, touche, swiper, scrollbar, owl, $) {
+require(['app', 'touche', 'swiper','swiperScrollbar','owl','fader','jquery'], function (app, touche, swiper, scrollbar, owl, fader, $) {
     'use strict';
     // use app here
   
