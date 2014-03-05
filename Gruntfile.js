@@ -1,7 +1,9 @@
 // Generated on 2014-01-10 using generator-webapp 0.4.1
 'use strict';
 var LIVERELOAD_PORT = 35729;
+
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
+
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
@@ -16,7 +18,10 @@ module.exports = function (grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
-    require('load-grunt-tasks')(grunt);
+   // require('load-grunt-tasks')(grunt);
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+    var modRewrite = require('connect-modrewrite');
 
     // configurable paths
     var yeomanConfig = {
@@ -64,15 +69,18 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    middleware: function (connect) {
-                        return [
-                            lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
-                        ];
-                    }
+                  middleware: function (connect) {
+                    return [
+                      modRewrite([
+                        '!\\.html|\\.js|\\.css|\\.swf|\\.jp(e?)g|\\.png|\\.gif$ /index.html'
+                      ]),
+                      lrSnippet,
+                      mountFolder(connect, '.tmp'),
+                      mountFolder(connect, yeomanConfig.app)
+                    ];
+                  }
                 }
-            },
+              },
             test: {
                 options: {
                     middleware: function (connect) {

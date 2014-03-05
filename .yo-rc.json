@@ -1,0 +1,12 @@
+{
+  "generator-assemble": {
+    "projectName": "",
+    "projectDesc": "The best project ever.",
+    "githubUser": "assemble",
+    "installPlugin": true,
+    "author": {
+      "login": "assemble",
+      "email": ""
+    }
+  }
+}
