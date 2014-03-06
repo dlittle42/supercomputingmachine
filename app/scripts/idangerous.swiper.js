@@ -1094,6 +1094,8 @@ var Swiper = function (selector, params) {
         }
         else {
             if (kc==38 || kc==40) {
+                console.log('KEYBOARD VERT----------');
+                
                 if (e.preventDefault) e.preventDefault();
                 else e.returnValue = false;
             }

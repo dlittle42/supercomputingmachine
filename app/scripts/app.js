@@ -8,8 +8,67 @@
      swiper_column6_nested,
      swiper_column7_nested;
 
-
  var document = window.document;
+
+/*
+        if (mobilecheck()){
+            slides = 1;
+        }else{
+            slides = 3;
+        }
+*/
+var doLoop,
+    doScroll,
+    freeScroll,
+    leftOffset;
+if (Modernizr.touch && $('body').width() <= 420) { 
+    //mobile
+
+    leftOffset = 0;
+}else if (Modernizr.touch && $('body').width() <= 768) { 
+    //mobile
+  //   alert('is tablet');
+    //slides = 1;
+    slides = 'auto';
+
+    doScroll=false;
+    doLoop = true;
+    freeScroll = false;
+    leftOffset = 150;
+} else if (Modernizr.touch) { 
+    //tablet
+ //   alert('is touch enabled');
+    slides = 'auto';
+
+    doScroll=false;
+    doLoop = false;//true;
+    freeScroll = false;
+    leftOffset = 100;
+} else { 
+    //desktop
+
+    slides = 'auto';
+    
+    doScroll = {
+        
+         container :'.swiper-scrollbar',
+          hide: false,
+          draggable: true,
+         // watchActiveIndex: true,
+          snapOnRelease: true,
+          onScrollbarDrag: function(){
+            console.log('Dragging')
+          }
+    };
+    
+   doLoop = false;
+   freeScroll = true;
+   leftOffset = 120;
+
+}
+
+
+
 
 if (!String.prototype.trim) {
 	String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
@@ -328,28 +387,30 @@ var interruptionJSON = {"phrases": [
 function selectPhrase(column){
 
     if (!column) var column = 'column1';
-    console.log(column);
-    targetArray = eval(column+'_JSON');
-    var newColumn = eval('swiper_'+column+'_nested');
-    console.log('newColumn = '+newColumn);
+  //  console.log(column);
+  //  targetArray = window['column1_JSON'];
+    //targetArray = eval(column+'_JSON');
+   // var newColumn = eval('swiper_'+column+'_nested');
+
+   // console.log('newColumn = '+newColumn);
   //  if ( newColumn == 'undefined'){
-        var rand = Math.floor(Math.random()*targetArray.phrases.length)
-        console.log(targetArray.phrases[rand].salutation);
-        console.log(targetArray.phrases[rand].comment);
-        $('#'+column+' .salutation').text(targetArray.phrases[rand].salutation);
+        var rand = Math.floor(Math.random()*column1_JSON.phrases.length)
+        console.log(column1_JSON.phrases[rand].salutation);
+        console.log(column1_JSON.phrases[rand].comment);
+        $('#'+column+' .salutation').text(column1_JSON.phrases[rand].salutation);
         $('#'+column+' .salutation').fadeIn(200);
         
         //timeoutSpinner = window.setTimeout(function(){
         $('.logo').addClass("touched");
        // }, 1000);
 
-        $('.salutation-comment').text(targetArray.phrases[rand].comment);
+        $('.salutation-comment').text(column1_JSON.phrases[rand].comment);
 
 
 
         if (column != 'column1'){
             $('.logo').addClass("touched");
-            eval('set_'+column+'Swiper()');
+           // eval('set_'+column+'Swiper()');
  /*
             if(column == 'column2' && typeof swiper_column2_nested == "undefined") setBlogSwiper();
             if(column == 'column3' && typeof swiper_column3_nested == "undefined") setBlogSwiper();
@@ -427,37 +488,70 @@ function userHint(){
 }
 
 function initializeVerticalSwiper(n){
-    
+    var paginate;
+    if (Modernizr.touch && $('body').width() <= 420) { 
+        paginate = null;
+    }else{
+        paginate = '#column'+n+' .pagination-nested';
+    }
 
     if ( typeof window['swiper_column'+n+'_nested'] == "undefined"){
         console.log('vert swiper_column'+n+'_nested init');
 
+        var count = 0;
+        $('#column'+n+' .swiper-slide').each(function(i, obj) {
+            count++;
+        });
+
+        console.log(' slide count='+count);
+
       window['swiper_column'+n+'_nested'] = new Swiper('#column'+n+' .swiper-nested',{
         mode: 'vertical',
-       // pagination: '.pagination-nested',
+       // pagination: paginate,
        // paginationClickable: true,
       //  freeMode: true,
      //   freeModeFluid: true,
         keyboardControl: true,
         cssWidthAndHeight: true,
-        mousewheelControl: true,
-        mousewheelControlForceToAxis: true,
-        loop: true,
-        loopedSlides: 6,
-       // slidesPerView: 2,
+        mousewheelControl: freeScroll,
+        mousewheelControlForceToAxis: freeScroll,
         slidesPerView: 'auto',
+        loop: true,
+        loopedSlides: count,
+       // slidesPerView: 2,
+        
         onFirstInit: function(swiper){
-
+           
+            $('#column'+n+' .swiper-nested .owl-carousel').owlCarousel({
+                items : 1,
+                lazyLoad : true,
+               // lazyEffect: "fade",
+                navigation : false,
+                pagination : false,
+                singleItem:true,
+               // autoPlay: 1000,
+                transitionStyle : "fade",
+                mouseDrag: "false",
+                touchDrag: "false"
+              });
             
-
         },
         
         onSlideClick: function(swiper){
 
 
         },
+        onSlideChangeStart: function(swiper){
+            $('.full-slide.swiper-slide-active .owl-carousel').trigger('owl.stop');
+            $('.full-slide.swiper-slide-active .owl-carousel').trigger('owl.jumpTo',0);
+
+        },
         onSlideChangeEnd: function(swiper){
-            console.log(swiperParent.activeIndex);
+
+            
+            $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .view .owl-carousel').trigger('owl.play',1000);
+        
+
 
         },
         onTouchEnd: function(swiper){
@@ -473,6 +567,59 @@ function initializeVerticalSwiper(n){
     }
 }
 
+function initializeCol2(){
+   
+
+    swiper_column2_nested = new Swiper('.swiper-nested',{
+        mode: 'vertical',
+       // pagination: paginate,
+       // paginationClickable: true,
+      //  freeMode: true,
+     //   freeModeFluid: true,
+      //  keyboardControl: true,
+      //  cssWidthAndHeight: true,
+      //  mousewheelControl: freeScroll,
+      //  mousewheelControlForceToAxis: freeScroll,
+     //   slidesPerView: 'auto',
+     //   loop: true,
+     //   loopedSlides: 6,
+        slidesPerView: 2,
+        
+        onFirstInit: function(swiper){
+            alert('first init Col 2');
+          /* 
+            $('#column2 .swiper-nested .owl-carousel').owlCarousel({
+                items : 1,
+                //lazyLoad : true,
+               // lazyEffect: "fade",
+                navigation : false,
+                pagination : false,
+                singleItem:true,
+               // autoPlay: 1000,
+                transitionStyle : "fade",
+                mouseDrag: "false",
+                touchDrag: "false"
+              });
+          */
+        }
+      });
+    
+}
+
+function initOwls(){
+    $('.owl-carousel').owlCarousel({
+        items : 1,
+        lazyLoad : true,
+       // lazyEffect: "fade",
+        navigation : false,
+        pagination : false,
+        singleItem:true,
+        autoPlay: 1000,
+       // transitionStyle : "fade",
+        mouseDrag: "false",
+        touchDrag: "false"
+      });
+}
 
 function initLogo(){
 
@@ -548,62 +695,7 @@ function initSwiper(){
 	  $(this).removeClass("preview");
 	})
 
-		/*
-		if (mobilecheck()){
-			slides = 1;
-		}else{
-			slides = 3;
-		}
-*/
-		var doLoop,
-			doScroll,
-			freeScroll,
-			leftOffset;
-		if (Modernizr.touch && $('body').width() <= 420) { 
-			//mobile
-
-			leftOffset = 0;
-		}else if (Modernizr.touch && $('body').width() <= 768) { 
-			//mobile
-
-			//slides = 1;
-            slides = 'auto';
-
-			doScroll=false;
-			doLoop = true;
-			freeScroll = false;
-			leftOffset = 180;
-		} else if (Modernizr.touch) { 
-			//tablet
-			//alert('is tablet');
-			slides = 'auto';
-
-			doScroll=false;
-			doLoop = true;
-			freeScroll = false;
-			leftOffset = 100;
-		} else { 
-			//desktop
-
-			slides = 'auto';
-			
-			doScroll = {
-		        
-		         container :'.swiper-scrollbar',
-			      hide: false,
-			      draggable: true,
-			     // watchActiveIndex: true,
-			      snapOnRelease: true,
-			      onScrollbarDrag: function(){
-			        console.log('Dragging')
-			      }
-		    };
-		    
-		   doLoop = false;
-		   freeScroll = true;
-		   leftOffset = 120;
-
-		}
+		
 
 	  swiperParent = new Swiper('.swiper-parent',{
 	 // 	slidesPerView:1,
@@ -613,6 +705,7 @@ function initSwiper(){
 	   // loopAdditionalSlides: 0,
 	  	keyboardControl: true,
 	  	offsetPxBefore: leftOffset,
+       // useCSS3Transforms:false,
 	  //	initialSlide: 0,
 	  	mousewheelControl: freeScroll,
 	    mousewheelControlForceToAxis: freeScroll,
@@ -627,17 +720,32 @@ function initSwiper(){
             $('body').removeClass("thinking");
             //set_column2Swiper();
            // var n = swiperParent.activeIndex;
+            //initializeCol2();
             initializeVerticalSwiper(2);
+         //   initializeVerticalSwiper(3);
+         //   initializeVerticalSwiper(4);
+         //   initializeVerticalSwiper(5);
+         //   initializeVerticalSwiper(6);
 	    	
 
 	    },
+        onSlideChangeStart: function(swiper){
+            $('.owl-carousel').trigger('owl.stop');
+            $('.owl-carousel').trigger('owl.jumpTo',0);
+
+        },
 	    onSlideChangeEnd: function(swiper){
 	    	var n = swiperParent.activeIndex;
 	    	
             var next = n+2;
 	    	console.log('END: swiperParent.activeIndex='+n+ ' :: NEXT = '+next);
-	    	//var col = $('.swiper-parent .swiper-slide-active').attr('id');
-         //   $('.swiper-slide-active .view .owl-carousel').trigger('owl.play',1000);
+	    	var col = $('.swiper-parent .swiper-slide-active').attr('id');
+            /*
+            var slide = window['swiper_column'+n+'_nested'];
+            console.log(":::::slide is "+slide);
+            if (slide != 'undefined') slide.destroy();
+            */
+            $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .view .owl-carousel').trigger('owl.play',1000);
 /*
             if (n==0){
                 console.log( 'first frame again');
@@ -646,6 +754,7 @@ function initSwiper(){
 */
             //selectPhrase('column'+(n+1));
             initializeVerticalSwiper(next);
+        
 
 
 	    }
@@ -659,19 +768,9 @@ function initSwiper(){
         
 	  });
 
-      $("#owl-demo1").owlCarousel({
-            items : 2,
-            lazyLoad : true,
-           // lazyEffect: "fade",
-         //   navigation : true,
-            singleItem:true,
-            //autoPlay: 2000,
-            transitionStyle : "fade",
-            mouseDrag: "false",
-            touchDrag: "false"
-          });
-	  
 
+      
+	 
       var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
 
 /*
@@ -712,6 +811,8 @@ function initSwiper(){
 		});
 
     */
+
+
 }
 
 
@@ -721,13 +822,13 @@ function initSwiper(){
 define(['swiper','swiperScrollbar','address','tinycolor','owl'], function (swiper, swiperScrollbar, address,tinycolor,owl) {
     //'use strict';
    
-
+/*
 	var tiny = tinycolor('yellow');//tinycolor('#f2f200');
 	var numItems = 7;
     var analogous = tinycolor.analogous(tiny,results = numItems, slices = numItems);
     var mono = tinycolor.monochromatic(tiny,results = numItems, slices = numItems);
     var colorEffect = tinycolor.analogous(tiny, 7);//tinycolor.analogous(tiny,results = numItems, slices = 5);
-
+*/
 /*
     var tiny = tinycolor('yellow');//tinycolor('#f2f200');
     var colorEffect = tinycolor.analogous(tiny, 7);
@@ -854,7 +955,7 @@ blue gradations
 	if ($('body').hasClass('blog')){
    		selectInterruption();
    	}else{
-
+       // initOwls();
 		initLogo();
 		initSwiper();
 	}
