@@ -2,7 +2,8 @@ require.config({
     //baseUrl: "/scripts",
     paths: {
        // jquery: '../bower_components/jquery/jquery',
-        jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
+       // jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
+        jquery: '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min',
         /*
         bootstrapAffix: '../bower_components/sass-bootstrap/js/affix',
         bootstrapAlert: '../bower_components/sass-bootstrap/js/alert',

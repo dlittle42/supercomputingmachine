@@ -15,21 +15,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
        
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+         <!-- build:css styles/idangerous.swiper.css -->
+        <link rel="stylesheet" href="styles/idangerous.swiper.css">
+        <!-- endbuild -->
+        <!-- build:css styles/idangerous.swiper.scrollbar.css -->
+        <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css">
+        <!-- endbuild -->
+
         <!-- build:css(.tmp) styles/main.css -->
 
-        <!-- Owl Carousel Assets -->
-
+        <!-- Owl Carousel Assets 
          <link href="scripts/owl-carousel/owl.carousel.css" rel="stylesheet">
          <link href="scripts/owl-carousel/owl.theme.css" rel="stylesheet">
          <link href="scripts/owl-carousel/owl.transitions.css" rel="stylesheet">
+        -->
 
-        <link rel="stylesheet" href="styles/idangerous.swiper.css">
-        <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css">
-        <link rel="stylesheet" href="styles/slider.css">
+        <link rel="stylesheet" href="styles/main.css">
         
 
 
         <!-- endbuild -->
+
+
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Quicksand:400,700|Source+Code+Pro|Cantarell' rel='stylesheet' type='text/css'>
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -79,11 +88,11 @@
             <div class="swiper-container swiper-nested" id="swiper-blog">
               <div class="swiper-wrapper">
                 <div class="swiper-slide blog-slide blog-latest">
-                  <a href="speak.html">
+                  <div class="blog-feature">
                     <div class="blog-title">
-               
+                    <a href="speak.html">
                      <h2>Speaking in color with the Web Speech API</h2>  
-                 
+                    </a>
                      <div class="blog-meta">
                         <div class="date-row row" >
                    
@@ -101,42 +110,51 @@
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </div>
+            
                       
               
                 </div>
                 <div class="swiper-slide blog-slide">
+                  <div class="blog-title">
                   <a href="#">
-                   <h2>Sing it again, computer</h2>  
+                   <h2>Sing it again, computer</h2> 
+                  </a>
                    <div class="blog-meta">
                       <div class="date-row row" >
                       
                           <div class="week-num">Week 13, 2014</div>
                       </div>
                     </div>
-                  </a>
+                    </div>
+              
                 </div>
                       
              
                 <div class="swiper-slide blog-slide">
+                  <div class="blog-title">
                   <a href="#">
                     <h2>Drawing in Space</h2>  
+                  </a>
                     <div class="blog-meta">
                       <div class="date-row row" >
                           <div class="week-num">Week 11, 2014</div>
                       </div>
                     </div>
-                  </a>
+                  </div>
+        
                 </div>
                 <div class="swiper-slide blog-slide">
+                  <div class="blog-title">
                   <a href="#">
-                    <h2>PNG Crunch</h2>  
+                    <h2>PNG Crunch</h2> 
+                  </a> 
                     <div class="blog-meta">
                       <div class="date-row row" >
                           <div class="week-num">Week 10, 2014</div>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </div>
                 <!--
                 <div class="swiper-slide blog-slide">
@@ -169,11 +187,11 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
           
-                  <a href="#">
+                  
                     <div class="view view-first"> 
                       <div id="owl-demo" class="owl-carousel">
                         <div class="item"><img src="images/portfolio/dvisa.png" class="lazyOwlz" data-src="images/portfolio/dvisa.png" alt="Lazy Owl Image"></div>
-                       
+                       <!--
                         <div class="item"><img class="lazyOwl" data-src="assets/owl2.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
@@ -186,97 +204,128 @@
                         <div class="item"><img class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+                        -->
                       </div>
                     </div>
-                    <div class="mask">  
-                      <h2>Disney Visa Card website</h2>  
-                      <p>A full responsive redesign built with Wordpress, including third-party redemption API integration and user generated content submissions.</p>  
+                    <div class="project-block"> 
+                      <div class="project-title">   
+                        <h2>Disney Visa Card website</h2>  
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>A full responsive redesign built with Wordpress, including third-party redemption API integration and user generated content submissions.</p>  
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>  
-                  </a>
+            
                 </div>
                 <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                        <div class="item"><img src="images/portfolio/carsland.png" class="lazyOwl" data-src="images/portfolio/carsland.png" alt="Lazy Owl Image"></div>
-                          
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
-                      </div>
-                    </div>
-                    <div class="mask">  
-                         <h2>TWO Disney Parks: Carsland</h2>  
-                         <p>Your Text</p>  
-                            
-                    </div>
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#">
+       
                     <div class="view">
                       <div class="owl-carousel">
                         <div class="item"><img src="images/portfolio/tru.png" class="lazyOwl" data-src="images/portfolio/tru.png" alt="Lazy Owl Image"></div>
+                        <!--
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                        -->
                       </div>
                     </div>
-                    <div class="mask">  
-                      <h2>THREE Birthdaysrus.com</h2>  
-                      <p>Your Text</p>  
+                    <div class="project-block"> 
+                      <div class="project-title">  
+                        <h2>Birthdays 'R Us</h2> 
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info"> 
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>An interactive playland for kids and informational website for parents promoting Geoffrey's Birthday Club at Toys 'R Us.</p>  
+                            <a href="http://www.birthdaysrus.com/kids/">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>  
-                  </a>
+     
                 </div>
                 <div class="swiper-slide">
-                  <a href="#">
+       
                     <div class="view">
                       <div class="owl-carousel">
-                        <div class="item"><img src="images/portfolio/pushingdaisies.png" class="lazyOwl" data-src="images/portfolio/dvisa.png" alt="Lazy Owl Image"></div>
+                        <div class="item"><img src="images/portfolio/truenorth.png" class="lazyOwl" data-src="images/portfolio/tru.png" alt="Lazy Owl Image"></div>
+                        <!--
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                        -->
                       </div>
                     </div>
-                    <div class="mask">  
-                      <h2>FIVE Pushing Daisies</h2>  
-                      <p>Your Text</p>  
+                    <div class="project-block"> 
+                      <div class="project-title">  
+                        <h2>Truenorthinc.com</h2> 
+                        <i class="fa fa-angle-down"></i>
+                      </div> 
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>A custom responsive Wordpress theme built for the advertising agency True North Inc.</p><a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>  
+     
+                </div>
+                
+                
+                <div class="swiper-slide">
+      
+                    <div class="view">
+                      <div class="owl-carousel">
+                      
+                        <div class="item"><img src="images/portfolio/pushingdaisies.png" class="lazyOwl" data-src="images/portfolio/dvisa.png" alt="Lazy Owl Image"></div>
+                      <!--
+                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
+                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
+                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
+                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
+                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
+                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
+                        -->
+                      </div>
+                    </div>
+                    <div class="project-block"> 
+                      <div class="project-title">  
+                        <h2>Pushing Daisies</h2>  
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>Your Text</p>  
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+
+                      </div>
                     </div> 
-                  </a>
+       
                 </div>
                 <div class="swiper-slide">
-                  <a href="#">
+    
                     <div class="view">
                       <div class="owl-carousel">
-                        <div class="item"><img src="images/portfolio/pushingdaisies.png" class="lazyOwl" data-src="images/portfolio/dvisa.png" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl6.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
-                        <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
-                      </div>
-                    </div>
-                    <div class="mask">
-                      <h2>FIVE Pushing Daisies</h2>  
-                      <p>Your Text</p>  
-                    </div>  
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                        <div class="item"><img src="images/portfolio/carsland.png" class="lazyOwl" data-src="images/portfolio/carsland.png" alt="Lazy Owl Image"></div>
+                     
+                        <div class="item"><img src="images/portfolio/dvisaholiday.png" class="lazyOwl" data-src="images/portfolio/dvisa.png" alt="Lazy Owl Image"></div>
+                       <!-- 
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl5.jpg" alt="Lazy Owl Image"></div>
@@ -284,14 +333,26 @@
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl7.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl8.jpg" alt="Lazy Owl Image"></div>
 
+                        -->
                       </div>
                     </div>
-                    <div class="mask">  
-                      <h2>SIX Title</h2>  
-                      <p>Your Text</p>  
+                    <div class="project-block"> 
+                      <div class="project-title"> 
+                        <h2>Disney Visa Holiday Favorites</h2> 
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>There's a lot of text to put into a paragraph right here. Your eyes might get tired.</p> 
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>  
-                  </a>
+             
                 </div>
+                
               </div>
 
             </div>
@@ -305,10 +366,10 @@
               
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#">
+        
                     <div class="view view-first">
                       <div class="owl-carousel">
-                        <div class="item"><img src="images/portfolio/contwix.png" class="lazyOwl" data-src="images/portfolio/contwix.png" alt="Lazy Owl Image"></div>
+                        <div class="item"><img src="images/portfolio/santa.png" class="lazyOwl" data-src="images/portfolio/contwix.png" alt="Lazy Owl Image"></div>
                         <!--
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl3.jpg" alt="Lazy Owl Image"></div>
                         <div class="item"><img src="images/bg.png" class="lazyOwl" data-src="assets/owl4.jpg" alt="Lazy Owl Image"></div>
@@ -320,100 +381,154 @@
               
                       </div>
                     </div>
-                    <div class="mask">  
-                      <h2>Contwix</h2>  
-                      <p>An application using Natural Language Processesing on RSS feeds, analyzing content for keywords and searching for related tweets on Twitter.</p>
-                    </div>  
+                    <div class="project-block"> 
+                      <div class="project-title">  
+                        <h2>Big Air Santa</h2>  
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>An iOS game using the gyroscope to trigger snowboarding tricks.</p> 
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div> 
                       
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                        <img src="images/portfolio/portfoliobuilder.png" />  
-                      </div>
-                    </div>
-                    <div class="mask">  
-                      <h2>Big Air Santa</h2>  
-                      <p>An iOS game </p>  
-                    </div>
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                         <img src="images/portfolio/santa.png" />  
-                      </div>
-                    </div>
-                    <div class="mask">  
-                       <h2>Big Air Santa</h2>  
-                       <p>An iOS game </p>  
-                          
-                    </div>
-                  </a>
-                 
-                </div>
-                <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                         <img src="images/portfolio/portfoliobuilder.png" />
-                      </div>
-                    </div>
-                 
-                    <div class="mask">  
-                       <h2>Portfolio Builder</h2>  
-                       <p>A web application allowing anyone at True North Inc to find past projects in the portfolio library and assemble a showcase site for clients.</p>    
                     </div>  
-                  </a>
-                 
+                   
+                      
+            
                 </div>
                 
+        
+               
                 <div class="swiper-slide">
-                  <a href="#">
+       
+                    <div class="view">
+                      <div class="owl-carousel">
+                         <img src="images/portfolio/contwix.png" />  
+                      </div>
+                    </div>
+                    <div class="project-block"> 
+                      <div class="project-title"> 
+                        <h2>Contwix</h2> 
+                        <i class="fa fa-angle-down"></i> 
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>An application using Natural Language Processesing on RSS feeds, analyzing content for keywords and searching for related tweets on Twitter.</p>
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                 
+                </div>
+
+                <div class="swiper-slide">
+           
                     <div class="view">
                     <div class="owl-carousel">
-                       <img src="images/portfolio/contwix.png" />
+                       <img src="images/portfolio/glamour.png" />
                     </div>  
                     </div>
                      
-                    <div class="mask">  
-                       <h2>Glamour Fashion Forecast</h2>  
-                       <p>A web application for Glamour.com which recommends outfits based on the weather and your mood and destination.</p>  
+                    <div class="project-block">  
+                      <div class="project-title">
+                        <h2>Glamour Fashion Forecast</h2> 
+                        <i class="fa fa-angle-down"></i> 
+                      </div>
+                      <div class="project-info">
+                      <div class="project-tray">
+                          <div class="project-desc">
+                           <p>A web application for Glamour.com which recommends outfits based on a combination of the current weather plus your mood and destination.</p>
+                           <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
+                       
                     </div>  
-                  </a>
+         
                
                 </div>
                 <div class="swiper-slide">
-                  <a href="#">
+
                     <div class="view">
                       <div class="owl-carousel">
-                         <img src="images/portfolio/santa.png" /> 
+                         <img src="images/portfolio/portfoliobuilder01.png" />
+                      </div>
+                    </div>
+                 
+                    <div class="project-block">  
+                      <div class="project-title"> 
+                        <h2>Portfolio Builder</h2>  
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>A web application allowing anyone at True North Inc to find past projects in the portfolio database and assemble a showcase site for presentations.</p>
+                            <a href="#">SEE MORE</a> 
+                          </div>
+                        </div>
+                      </div>
+                   
+                    </div>  
+                </div>
+
+                <div class="swiper-slide">
+      
+                    <div class="view">
+                      <div class="owl-carousel">
+                         <img src="images/portfolio/xdapp.png" />  
+                      </div>
+                    </div>
+                    <div class="project-block">  
+                      <div class="project-title">  
+                        <h2>Disney XD Desktop App</h2> 
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+
+                            <p>A desktop application showcasing the latest shows on Disney XD.</p>  
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+                </div>
+                
+                
+                <div class="swiper-slide">
+            
+                    <div class="view">
+                      <div class="owl-carousel">
+                         <img src="images/portfolio/werewolf01.png" /> 
                       </div> 
                     </div>
                 
-                    <div class="mask">  
-                       <h2>Werewolf Yourself</h2>  
-                       <p>A Facebook application for ABC Family which allowed you to make your picture into a werewolf and send to your friends.</p>   
-                    </div>  
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                         <img src="images/portfolio/portfoliobuilder.png" />  
+                    <div class="project-block">  
+                      <div class="project-title">   
+                        <h2>Werewolf Yourself</h2>  
+                        <i class="fa fa-angle-down"></i>
                       </div>
-                    </div>
-                    <div class="mask">  
-                      <h2>Title</h2>  
-                      <p>Your Text</p>  
-                    </div>  
-                  </a>
-                 
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>A Facebook application for ABC Family which allowed you to make your picture into a werewolf and send to your friends.</p>   
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
+                     
+                    </div> 
                 </div>
+                
               </div>
             </div>
           </div>
@@ -427,76 +542,77 @@
               
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#">
+            
                     <div class="view view-first">  
                       <div class="owl-carousel">
-                         <img src="images/portfolio/dvisa.png" /> 
+                         <img src="images/portfolio/killbill.png" /> 
                       </div> 
                     </div>
-                    <div class="mask">  
-                       <h2>Kill Bill</h2>  
-                       <p>Your Text</p>  
-                      
+                    <div class="project-block"> 
+                      <div class="project-title"> 
+                        <h2>Kill Bill</h2> 
+                        <i class="fa fa-angle-down"></i>
+                      </div> 
+                      <div class="project-info">
+                        <div class="project-tray">
+                            <div class="project-desc">
+                              <p>Early interactive ad for the DVD release of Kill Bill featuring an auto-streaming trailer and multiple character features.</p>  
+                              <a href="#">SEE MORE</a>
+                            </div>
+                          </div>
+                      </div>
                     </div>  
-                  </a>
+            
                 </div>
                 <div class="swiper-slide">
-                  <a href="#">
+       
                     <div class="view">
                       <div class="owl-carousel">
-                         <img src="images/portfolio/carsland.png" />
+                         <img src="images/portfolio/findingnemo.png" />
                       </div> 
                     </div>
-                    <div class="mask">  
-                       <h2>Finding Nemo</h2>  
-                       <p>Your Text</p>  
+                    <div class="project-block"> 
+                      <div class="project-title">  
+                        <h2>Finding Nemo</h2>  
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>An early tandem ad placement on Yahoo.com for the DVD release of Finding Nemo.</p>  
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </a>
+             
                 </div>
                 <div class="swiper-slide">
-                  <a href="#">
+          
                     <div class="view">
                       <div class="owl-carousel">
-                         <img src="images/portfolio/tru.png" />
+                         <img src="images/portfolio/mr3000.png" />
                       </div> 
                     </div>
                
-                    <div class="mask">  
-                       <h2>Mr. 3000</h2>  
-                       <p>Your Text</p>  
-                          
+                    <div class="project-block"> 
+                      <div class="project-title"> 
+                        <h2>Mr. 3000</h2> 
+                        <i class="fa fa-angle-down"></i>
+                      </div> 
+                      <div class="project-info">
+                        <div class="project-tray">
+                          <div class="project-desc">
+                            <p>A batting practice game featured exclusively in online ads for the theatrical release of Mr. 3000.</p>
+                            <a href="#">SEE MORE</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>  
-                  </a>
+     
                 </div>
                 
-                <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                         <img src="images/portfolio/carsland.png" />
-                      </div> 
-                    </div>
-                    <div class="mask">  
-                       <h2>Finding Nemo</h2>  
-                       <p>Your Text</p>  
-                    </div>
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#">
-                    <div class="view">
-                      <div class="owl-carousel">
-                         <img src="images/portfolio/tru.png" />
-                      </div> 
-                    </div>
-               
-                    <div class="mask">  
-                       <h2>Mr. 3000</h2>  
-                       <p>Your Text</p>  
-                          
-                    </div>  
-                  </a>
-                </div>
+              
               </div>
 
             </div>
@@ -593,9 +709,9 @@
               <p>This is a paragraph that goes right here. It gets longer and there is more information. Keep on reading. There's more to learn.</p>
 
               <ul>
-                <li>LinkedIn</li>
-                <li>Twitter</li>
-                <li>Email</li>
+                <li><i class="fa fa-linkedin"></i> LinkedIn</li>
+                <li><i class="fa fa-twitter"></i> Twitter</li>
+                <li>@ Email </li>
               </ul>
               
 
@@ -647,7 +763,7 @@
   -->
 
         <!-- build:js scripts/main.js -->
-       <script data-main="scripts/slider" src="bower_components/requirejs/require.js"></script>
+       <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
 
 

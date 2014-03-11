@@ -13,26 +13,22 @@
         -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-         <!-- build:css styles/idangerous.swiper.css -->
-        <link rel="stylesheet" href="styles/idangerous.swiper.css">
-        <!-- endbuild -->
-        <!-- build:css styles/idangerous.swiper.scrollbar.css -->
-        <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css">
-        <!-- endbuild -->
-
         <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/idangerous.swiper.css">
+        <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css">
+        <link rel="stylesheet" href="styles/slider.css">
+        <!-- Owl Carousel Assets -->
 
-        <!-- Owl Carousel Assets 
          <link href="scripts/owl-carousel/owl.carousel.css" rel="stylesheet">
          <link href="scripts/owl-carousel/owl.theme.css" rel="stylesheet">
          <link href="scripts/owl-carousel/owl.transitions.css" rel="stylesheet">
-        -->
+  <!--
+        <link href="styles/looper.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="styles/main.css">
+        <link type="text/css" rel="stylesheet" href="styles/rhinoslider-1.05.css">
+        -->
         <!-- endbuild -->
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Quicksand:400,700|Source+Code+Pro|Cantarell' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Quicksand:400,700|Source+Code+Pro|Cantarell" rel="stylesheet" type="text/css">
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
@@ -43,7 +39,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-      <div class="page-container ">
+      <div class="page-container">
         <div class="header">
             <!--
                <div class="circle unselectable" id="logo"><h1>Super Computing Machine</h1></div>
@@ -65,7 +61,7 @@
                   <div class="blog-entry fade-in">
                     <h2>Speaking in color: A Web Speech API experiment</h2>
                     <div class="blog-meta">
-                      <div class="date-row row" >
+                      <div class="date-row row">
                           <div class="week-num">Week 14, 2014</div>
                           <ul class="week">
                             <li class="past"></li>
@@ -82,9 +78,9 @@
                     <p>It’s no secret that mobile is changing the way we think about, design and interact with the web. Touch has replaced the point-and-click model, if not in practice, in spirit. From typography to fluid grids to button sizes, even if you’re sitting at your desktop you feel its effects. Yet even as we designers and developers grapple with what that means for ourselves and our clients, the next disruption is already beginning.</p>
                    
 
-                    <p>Google Voice and Apple’s Siri have brought speech recognition to the mainstream and recently Google introduced a javascript <a href="http://chrome.blogspot.ca/2013/02/bringing-voice-recognition-to-web.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://chrome.blogspot.ca']);" target="_blank">Web Speech API</a> in the latest release of Chrome. As of Chrome version 25, developers can easily convert audio to text using this API, finally making voice a viable method of interaction. How might this change how we think about interaction design? What are the possibilities for improved accessibility? And will applications even need a UI as we’ve come to know them?</p>
+                    <p>Google Voice and Apple’s Siri have brought speech recognition to the mainstream and recently Google introduced a javascript <a href="http://chrome.blogspot.ca/2013/02/bringing-voice-recognition-to-web.html" onclick="_gaq.push(['_trackEvent','outbound-article','http://chrome.blogspot.ca'])" target="_blank">Web Speech API</a> in the latest release of Chrome. As of Chrome version 25, developers can easily convert audio to text using this API, finally making voice a viable method of interaction. How might this change how we think about interaction design? What are the possibilities for improved accessibility? And will applications even need a UI as we’ve come to know them?</p>
 
-                    <p>All big questions worth exploring, but for starters, we’ve put together this little experiment to see what some of the possibilities might be. In this demo, once you activate your microphone you can speak the names of different colors and the screen background will change to match (only <a href="http://www.crockford.com/wrrrld/color.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.crockford.com']);" target="_blank">CSS color names</a>, mind you). And for some good old-fashioned audio feedback, we’ve incorporated a separate text-to-speech library, <a href="https://github.com/kripken/speak.js" onclick="javascript:_gaq.push(['_trackEvent','download','http://github.com/kripken/speak.js']);" target="_blank">speak.js</a>. Try it out and let us know how you feel about the possibilities of speech recognition.</p>
+                    <p>All big questions worth exploring, but for starters, we’ve put together this little experiment to see what some of the possibilities might be. In this demo, once you activate your microphone you can speak the names of different colors and the screen background will change to match (only <a href="http://www.crockford.com/wrrrld/color.html" onclick="_gaq.push(['_trackEvent','outbound-article','http://www.crockford.com'])" target="_blank">CSS color names</a>, mind you). And for some good old-fashioned audio feedback, we’ve incorporated a separate text-to-speech library, <a href="https://github.com/kripken/speak.js" onclick="_gaq.push(['_trackEvent','download','http://github.com/kripken/speak.js'])" target="_blank">speak.js</a>. Try it out and let us know how you feel about the possibilities of speech recognition.</p>
                   </div>
             </div>
       
@@ -92,7 +88,7 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <!--<script src="bower_components/jquery/jquery.js"></script>-->
+        <script src="bower_components/jquery/jquery.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -127,12 +123,9 @@
   -->
 
         <!-- build:js scripts/main.js -->
-       <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+       <script data-main="scripts/slider" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
 
 
 </body>
 </html>
-
-
-

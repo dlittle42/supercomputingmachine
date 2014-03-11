@@ -6,7 +6,8 @@
      swiper_column4_nested,
      swiper_column5_nested,
      swiper_column6_nested,
-     swiper_column7_nested;
+     swiper_column7_nested,
+     owl_active = false;
 
  var document = window.document;
 
@@ -32,9 +33,9 @@ if (Modernizr.touch && $('body').width() <= 420) {
     slides = 'auto';
 
     doScroll=false;
-    doLoop = true;
+    doLoop = false;//true;
     freeScroll = false;
-    leftOffset = 150;
+    leftOffset = 100;
 } else if (Modernizr.touch) { 
     //tablet
  //   alert('is touch enabled');
@@ -521,7 +522,7 @@ function initializeVerticalSwiper(n){
        // slidesPerView: 2,
         
         onFirstInit: function(swiper){
-           
+           if ( owl_active == true){
             $('#column'+n+' .swiper-nested .owl-carousel').owlCarousel({
                 items : 1,
                 lazyLoad : true,
@@ -534,11 +535,22 @@ function initializeVerticalSwiper(n){
                 mouseDrag: "false",
                 touchDrag: "false"
               });
+            }
+         //   $('.project-info').css({'height': '100%'});
             
         },
         
         onSlideClick: function(swiper){
-
+          //  alert($(this).find('.project-info'));
+           console.log(swiper.clickedSlide);
+    
+            if ( $(swiper.clickedSlide).find('.project-tray').hasClass('reveal')){
+                $(swiper.clickedSlide).find('.project-tray').removeClass('reveal');
+            }else{
+                $(swiper.clickedSlide).find('.project-tray').addClass('reveal');
+            }
+            
+            //$('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .project-info').addClass('reveal');
 
         },
         onSlideChangeStart: function(swiper){
@@ -718,6 +730,7 @@ function initSwiper(){
 	    	$('.swiper-parent').find('.salutation').addClass('speaking');
 	    	$('.swiper-parent').find('.salutation-comment').addClass('speaking');
             $('body').removeClass("thinking");
+
             //set_column2Swiper();
            // var n = swiperParent.activeIndex;
             //initializeCol2();
@@ -760,15 +773,16 @@ function initSwiper(){
 	    }
 	  });
 
+/*
 
-
-	  $('.mask').bind('touchstart mousedown', function(e){
-		console.log('image click');
+	  $('.project-block').bind('touchstart mousedown', function(e){
+		console.log('image click'+ $(this).attr('class'));
+        $(this).find('.project-info').addClass('reveal');
 
         
 	  });
 
-
+*/
       
 	 
       var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
@@ -868,29 +882,7 @@ blue gradations
 	    $(this).css({'background-color': colorEffect[(i)+23]});
 	});
 */
-/*
 
-	tiny = tinycolor('blue');//tinycolor('#f2f200');
-    colorEffect = tinycolor.analogous(tiny, 80);
-	$('#column5 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	    $(this).css({'background-color': tinycolor.desaturate(colorEffect[(i)+38], 1)});
-	});
-
-	tiny = tinycolor('lime');//tinycolor('#f2f200');
-   // colorEffect = tinycolor.analogous(tiny, 40);
-    colorEffect = tinycolor.analogous(tiny, 40);
-	$('#column6 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	  //  $(this).css({'background-color': tinycolor.darken(colorEffect[(i)+22], 10)});
-	    $(this).css({'background-color': tinycolor.darken(colorEffect[(i)+26], 10)});
-	});
-
-*/
 
 	var tiny = tinycolor('yellow');//tinycolor('#f2f200');
     var colorEffect = tinycolor.analogous(tiny, 80);
@@ -901,7 +893,9 @@ blue gradations
 	    //$(this).css({'background-color': analogous[i].toRgbString()});
 	    console.log(colorEffect[i]);
 	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	   newColor = tinycolor.darken(colorEffect[n+offset],10);
+	  // newColor = tinycolor.darken(colorEffect[n+offset],10);
+       newColor = tinycolor.desaturate(colorEffect[n+offset],30);
+       console.log('newColor='+newColor);
 	     $(this).css({'background-color': newColor});
 	    n++;
 	});
@@ -913,8 +907,9 @@ blue gradations
 	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
 	    newColor2 = tinycolor.desaturate(colorEffect[n+offset],30);
 	    console.log('newColor='+newColor2);
-	    $(this).css({'background-color': newColor2});
-	    $(this).find(".mask").css({'background-color': newColor2});
+	    $(this).css({'background-color': tinycolor.darken(newColor2, 5)});
+	    $(this).find(".project-title").css({'background-color': newColor2});
+        $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor2,5)});
 	    n++;
 	});
 
@@ -924,8 +919,10 @@ blue gradations
 	    console.log(colorEffect[i]);
 	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
 	  	newColor = tinycolor.desaturate(colorEffect[n+offset],30);
-	    $(this).css({'background-color': newColor});
-	    $(this).find(".view .mask").css({'background-color': newColor});
+        console.log('newColor='+newColor);
+	    $(this).css({'background-color': tinycolor.darken(newColor,5)});
+	    $(this).find(".project-title").css({'background-color': newColor});
+        $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
 	    n++;
 	});
 
@@ -935,8 +932,10 @@ blue gradations
 	    console.log(colorEffect[i]);
 	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
 	   	newColor = tinycolor.desaturate(colorEffect[n+offset], 30);
-	    $(this).css({'background-color': newColor});
-	    $(this).find(".mask").css({'background-color': newColor});
+        console.log('newColor='+newColor);
+	    $(this).css({'background-color': tinycolor.darken(newColor,5)});
+	    $(this).find(".project-title").css({'background-color': newColor});
+        $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
 	    n++;
 	});
 
@@ -946,6 +945,7 @@ blue gradations
 	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
 	  //  $(this).css({'background-color': tinycolor.darken(colorEffect[(i)+22], 10)});
 	  	newColor = tinycolor.desaturate(colorEffect[n+offset], 30);
+        console.log('newColor='+newColor);
 	    $(this).css({'background-color': newColor});
 
 	    n++;
