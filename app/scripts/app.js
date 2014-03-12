@@ -9,6 +9,8 @@
      swiper_column7_nested,
      owl_active = false;
 
+Modernizr.touch=true;
+
  var document = window.document;
 
 /*
@@ -543,11 +545,11 @@ function initializeVerticalSwiper(n){
         onSlideClick: function(swiper){
           //  alert($(this).find('.project-info'));
            console.log(swiper.clickedSlide);
-    
-            if ( $(swiper.clickedSlide).find('.project-tray').hasClass('reveal')){
-                $(swiper.clickedSlide).find('.project-tray').removeClass('reveal');
+            var curTray = $(swiper.clickedSlide).find('.project-tray');
+            if ( curTray.hasClass('reveal')){
+                curTray.removeClass('reveal');
             }else{
-                $(swiper.clickedSlide).find('.project-tray').addClass('reveal');
+                curTray.addClass('reveal');
             }
             
             //$('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .project-info').addClass('reveal');
@@ -894,7 +896,7 @@ blue gradations
 	    console.log(colorEffect[i]);
 	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
 	  // newColor = tinycolor.darken(colorEffect[n+offset],10);
-       newColor = tinycolor.desaturate(colorEffect[n+offset],30);
+       newColor = tinycolor.darken(colorEffect[n+offset],10);
        console.log('newColor='+newColor);
 	     $(this).css({'background-color': newColor});
 	    n++;
@@ -908,8 +910,16 @@ blue gradations
 	    newColor2 = tinycolor.desaturate(colorEffect[n+offset],30);
 	    console.log('newColor='+newColor2);
 	    $(this).css({'background-color': tinycolor.darken(newColor2, 5)});
-	    $(this).find(".project-title").css({'background-color': newColor2});
-        $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor2,5)});
+        if (Modernizr.touch && $('body').width() <= 420){
+    	    $(this).find(".project-title").css({'background-color': newColor2});
+            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor2,5)});
+        }
+        /*
+        $(this).find("li").each(function(i, obj) {
+            $(this).css({'background-color': tinycolor.darken(newColor2,i*5)});
+        });
+*/
+
 	    n++;
 	});
 
@@ -921,8 +931,10 @@ blue gradations
 	  	newColor = tinycolor.desaturate(colorEffect[n+offset],30);
         console.log('newColor='+newColor);
 	    $(this).css({'background-color': tinycolor.darken(newColor,5)});
-	    $(this).find(".project-title").css({'background-color': newColor});
-        $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
+        if (Modernizr.touch && $('body').width() <= 420){
+	       $(this).find(".project-title").css({'background-color': newColor});
+            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
+        }
 	    n++;
 	});
 
@@ -934,8 +946,10 @@ blue gradations
 	   	newColor = tinycolor.desaturate(colorEffect[n+offset], 30);
         console.log('newColor='+newColor);
 	    $(this).css({'background-color': tinycolor.darken(newColor,5)});
-	    $(this).find(".project-title").css({'background-color': newColor});
-        $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
+        if (Modernizr.touch && $('body').width() <= 420){
+	       $(this).find(".project-title").css({'background-color': newColor});
+            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
+        }
 	    n++;
 	});
 
