@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Speak Colors</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        
+        
+   
+        <link rel="stylesheet" href="styles/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Kite+One' rel='stylesheet' type='text/css'>
+        <script src="scripts/vendor/modernizr.min.js"></script>
+       
+    </head>
+    <body>
+    <div id="bkgd"></div>
+    <h1 class="center" id="headline">
+  Let's talk about colors</h1>
+<div id="info">
+  <p id="info_start">First, allow access to your microphone above.</p>
+  <p id="info_speak_now">Say the name of a color and the background will change.</p>
+  <p id="info_no_speech">No speech was detected. You may need to adjust your
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+      microphone settings</a>.</p>
+  <p id="info_no_microphone" style="display:none">
+    No microphone was found. Ensure that a microphone is installed and that
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+    microphone settings</a> are configured correctly.</p>
+  <p id="info_again">Speech timed out. Click the microphone to start again.</p>
+  <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+  <p id="info_denied">Permission to use microphone was denied.</p>
+  <p id="info_blocked">Permission to use microphone is blocked. To change,
+    go to chrome://settings/contentExceptions#media-stream</p>
+  <p id="info_upgrade">Web Speech API is not supported by this browser.
+     Download <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> to use this feature.
+</div>
+<div class="right">
+  <button id="start_button" onclick="startButton(event)">
+    <img id="start_img" src="images/mic.gif" alt="Start"></button>
+</div>
+<div id="audio"></div>
+    <div id="loading"></div>
+    <canvas id="waveform"></canvas>
+    <!--
+<div class="center">
+
+  <p>
+  <div id="div_language">
+    <select id="select_language" onchange="updateCountry()"></select>
+    &nbsp;&nbsp;
+    <select id="select_dialect"></select>
+  </div>
+  
+
+</div>
+-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script> -->
+<script src="scripts/vendor/three.min.js"></script>
+<script src="scripts/vendor/speakClient.js"></script>
+<script src="scripts/vendor/speakGenerator.js"></script>
+<!-- Dancer.js -->
+<script src="scripts/vendor/dancer/src/dancer.js"></script>
+<script src="scripts/vendor/dancer/src/support.js"></script>
+<script src="scripts/vendor/dancer/src/kick.js"></script>
+<script src="scripts/vendor/dancer/src/adapterWebkit.js"></script>
+<script src="scripts/vendor/dancer/src/adapterMoz.js"></script>
+<script src="scripts/vendor/dancer/src/adapterFlash.js"></script>
+<script src="scripts/vendor/dancer/lib/fft.js"></script>
+<script src="scripts/vendor/dancer/lib/flash_detect.js"></script>
+<script src="scripts/vendor/dancer/plugins/dancer.fft.js"></script>
+<script src="scripts/vendor/dancer/plugins/dancer.waveform.js"></script>
+
+<script src="scripts/main.js"></script>
+
+       
+        
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-18811296-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

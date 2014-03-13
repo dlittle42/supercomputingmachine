@@ -1,0 +1,168 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>facetrack</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/63029557.main.css">
+        <script src="scripts/vendor/f7f27360.modernizr.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="bkgd"></div>
+    
+
+        <div class="container">
+                    <canvas id="feed" width="320" height="240"></canvas>
+        
+            <div id="clock">
+
+                <!-- time to add the controls -->
+                <input id="start" name="controls" type="radio">
+                <input id="stop" name="controls" type="radio">
+                <input id="reset" name="controls" type="radio">
+                <div class="timer">
+                    <div class="cell">
+                        <div class="numbers tenhour moveten">0 1 2 3 4 5 6 7 8 9</div>
+                    </div>
+                    <div class="cell">
+                        <div class="numbers hour moveten">0 1 2 3 4 5 6 7 8 9</div>
+                    </div>
+                    <div class="cell divider"><div class="numbers">:</div></div>
+                    <div class="cell">
+                        <div class="numbers tenminute movesix">0 1 2 3 4 5 6</div>
+                    </div>
+                    <div class="cell">
+                        <div class="numbers minute moveten">0 1 2 3 4 5 6 7 8 9</div>
+                    </div>
+                    <div class="cell divider"><div class="numbers">:</div></div>
+                    <div class="cell">
+                        <div class="numbers tensecond movesix">0 1 2 3 4 5 6</div>
+                    </div>
+                    <div class="cell">
+                        <div class="numbers second moveten">0 1 2 3 4 5 6 7 8 9</div>
+                    </div>
+                    <div class="cell divider"><div class="numbers">:</div></div>
+                    <div class="cell">
+                        <div class="numbers milisecond moveten">0 1 2 3 4 5 6 7 8 9</div>
+                    </div>
+                    <div class="cell">
+                        <div class="numbers tenmilisecond moveten">0 1 2 3 4 5 6 7 8 9</div>
+                    </div>
+                    <div class="cell">
+                        <div class="numbers hundredmilisecond moveten">0 1 2 3 4 5 6 7 8 9</div>
+                    </div>
+                </div>
+
+                <div id="issues">
+                </div>
+            </div>
+
+            <div id="inputs" class="row">
+                <div id="debug_panel">
+                    <canvas id="compare" width="320" height="240"></canvas>
+                    <video id="vid" autoplay="" loop="" width="320" height="240"></video>
+                   
+                    <canvas id="overlay" width="320" height="240"></canvas>
+                    <canvas id="debug" width="320" height="240"></canvas>
+                    
+                    <div id="messages">
+                        <p id="gUMMessage"></p>
+                        <p>Status : <span id="headtrackerMessage"></span></p>
+                        <p><input type="button" onclick="htracker.stop();htracker.start()" value="reinitiate facedetection">
+
+                    </p></div>
+                </div> <!-- end debug -->
+                <div id="readout" class="col-lg-3">
+                    <h1 class="center" id="headline">Jira is ready.</h1>
+                    <form id="Jira_login">
+                        <label for="username">Jira Username:</label><br>
+                        <input type="text" name="username" id="username" value="" minlength="1"><br>
+                        <label for="password">Password:</label><br>
+                        <input type="password" name="password" id="password" value="" minlength="1"><br>
+                        <input type="submit" id="loginBtn" class="btn btn-gray" value="Jira Login">
+                        
+                    </form>
+                    <button id="logwork" class="btn btn-gray">Log Work</button>
+                    <div id="info">
+                      <p id="info_start">First, allow access to your microphone above.</p>
+                      <p id="info_speak_now">"Start Timer" to begin timer. "Stop Timer" to pause.</p>
+                      <p id="info_no_speech">No speech was detected. You may need to adjust your
+                        <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                          microphone settings</a>.</p>
+                      <p id="info_no_microphone" style="display:none">
+                        No microphone was found. Ensure that a microphone is installed and that
+                        <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                        microphone settings</a> are configured correctly.</p>
+                      <p id="info_again">Speech timed out. Click here to <a href="#" id="reactivate_speech">reactivate</a>.</p>
+                      <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+                      <p id="info_denied">Permission to use microphone was denied.</p>
+                      <p id="info_blocked">Permission to use microphone is blocked. To change,
+                        go to chrome://settings/contentExceptions#media-stream</p>
+                      <p id="info_upgrade">Web Speech API is not supported by this browser.
+                         Download <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> to use this feature.
+                    </p></div>
+                    <div id="microphone" class="right">
+                      <button id="start_button" onclick="startButton(event)">
+                        <img id="start_img" src="images/7282d933.mic.gif" alt="Start"></button>
+                    </div>
+                
+                    
+        
+            </div><!-- end inputs -->
+
+            
+            <div id="audio"></div>
+<!--
+            <div class="footer">
+                <p>♥ from the Yeoman team</p>
+            </div>
+-->
+
+        </div>
+
+
+        <script src="scripts/1137e1f5.vendor.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        -->
+
+        <script src="scripts/9b66218a.plugins.js"></script>
+
+        <script src="scripts/cac3da13.main.js"></script>
+
+        <!-- build:js scripts/plugins.js 
+        
+        <script src="bower_components/sass-bootstrap/js/affix.js"></script>
+        <script src="bower_components/sass-bootstrap/js/alert.js"></script>
+        <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
+        <script src="bower_components/sass-bootstrap/js/modal.js"></script>
+        <script src="bower_components/sass-bootstrap/js/transition.js"></script>
+        <script src="bower_components/sass-bootstrap/js/button.js"></script>
+        <script src="bower_components/sass-bootstrap/js/popover.js"></script>
+        <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
+        <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
+        <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+
+        endbuild -->
+</div></body>
+</html>

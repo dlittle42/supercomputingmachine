@@ -556,8 +556,9 @@ function initializeVerticalSwiper(n){
 
         },
         onSlideChangeStart: function(swiper){
-            $('.full-slide.swiper-slide-active .owl-carousel').trigger('owl.stop');
-            $('.full-slide.swiper-slide-active .owl-carousel').trigger('owl.jumpTo',0);
+           // $('.full-slide.swiper-slide-active .owl-carousel').trigger('owl.stop');
+           // $('.full-slide.swiper-slide-active .owl-carousel').trigger('owl.jumpTo',0);
+            $('.project-tray').removeClass('reveal');
 
         },
         onSlideChangeEnd: function(swiper){
@@ -745,8 +746,10 @@ function initSwiper(){
 
 	    },
         onSlideChangeStart: function(swiper){
-            $('.owl-carousel').trigger('owl.stop');
-            $('.owl-carousel').trigger('owl.jumpTo',0);
+           // $('.owl-carousel').trigger('owl.stop');
+           // $('.owl-carousel').trigger('owl.jumpTo',0);
+            $('.logo').addClass("touched");
+            $('.project-tray').removeClass('reveal');
 
         },
 	    onSlideChangeEnd: function(swiper){
@@ -769,6 +772,7 @@ function initSwiper(){
 */
             //selectPhrase('column'+(n+1));
             initializeVerticalSwiper(next);
+
         
 
 
@@ -888,6 +892,7 @@ blue gradations
 
 	var tiny = tinycolor('yellow');//tinycolor('#f2f200');
     var colorEffect = tinycolor.analogous(tiny, 80);
+    console.log(colorEffect);
     var offset = 39;
     var n=1;
     var newColor;
