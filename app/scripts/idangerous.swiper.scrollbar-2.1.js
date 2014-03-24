@@ -72,6 +72,7 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 	if (params.draggable) {
 		var isTouched = false;
 		function dragStart(e){
+			console.log('dragStart');
 			isTouched = true;
 			if(e.preventDefault) e.preventDefault();
             else e.returnValue = false;

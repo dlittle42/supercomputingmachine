@@ -31,7 +31,7 @@ $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
 $easeInBackCustom: cubic-bezier(0.245, -0.090, 0.735, 0.045);
 
 
-$divcount: .swiper-nested .swiper-slide:nth-last-child;
+//$divcount: .swiper-nested .swiper-slide:nth-last-child;
 
 
 html, body{
@@ -60,7 +60,7 @@ a{
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-out;
   height: 50px;
-  width: $divcount;//50px;
+  width: 50px;
   margin: 20px 10px;
   
   //transform: rotateZ( 45deg );

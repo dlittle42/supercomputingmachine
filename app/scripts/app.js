@@ -9,9 +9,11 @@
      swiper_column7_nested,
      owl_active = false;
 
-Modernizr.touch=true;
+//Modernizr.touch=true;
 
  var document = window.document;
+
+
 
 /*
         if (mobilecheck()){
@@ -24,10 +26,12 @@ var doLoop,
     doScroll,
     freeScroll,
     leftOffset;
-if (Modernizr.touch && $('body').width() <= 420) { 
+if (Modernizr.touch && $('body').width() <= 568) { 
+    //up to iphone5 landscape
     //mobile
 
     leftOffset = 0;
+    doLoop = false;
 }else if (Modernizr.touch && $('body').width() <= 768) { 
     //mobile
   //   alert('is tablet');
@@ -44,7 +48,7 @@ if (Modernizr.touch && $('body').width() <= 420) {
     slides = 'auto';
 
     doScroll=false;
-    doLoop = false;//true;
+    doLoop = true;
     freeScroll = false;
     leftOffset = 100;
 } else { 
@@ -54,14 +58,11 @@ if (Modernizr.touch && $('body').width() <= 420) {
     
     doScroll = {
         
-         container :'.swiper-scrollbar',
+          container :'.swiper-scrollbar',
           hide: false,
           draggable: true,
          // watchActiveIndex: true,
-          snapOnRelease: true,
-          onScrollbarDrag: function(){
-            console.log('Dragging')
-          }
+          snapOnRelease: true
     };
     
    doLoop = false;
@@ -185,8 +186,8 @@ var column1_JSON = {"phrases": [
         	"comment": "Look at you."
         },
         {	
-        	"salutation": "Man,",
-        	"comment": "Can you believe those Sixers?"
+        	"salutation": "HTML, CSS, JS. ",
+        	"comment": "Let's use more acronyms..."
         }
     ]
 };
@@ -343,7 +344,7 @@ var column6_JSON = {"phrases": [
 var interruptionJSON = {"phrases": [
         {	
         	"salutation": "Oh.",
-        	"comment": "Your're going to love this..."
+        	"comment": "You're going to love this..."
         },
         {	
         	"salutation": "Blimey!",
@@ -464,6 +465,7 @@ function selectInterruption(){
 	//$('#salutation').text(greetingJSON.phrases[rand].salutation);
 	var msg = $('#interupt');
 	msg.html('<h2>'+interruptionJSON.phrases[rand].comment+'</h2>');
+    console.log('scuse me: '+interruptionJSON.phrases[rand].comment);
 
 	msg.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
 	    
@@ -710,6 +712,8 @@ function initSwiper(){
 	  $(this).removeClass("preview");
 	})
 
+
+
 		
 
 	  swiperParent = new Swiper('.swiper-parent',{
@@ -777,6 +781,8 @@ function initSwiper(){
 
 
 	    }
+
+
 	  });
 
 /*
@@ -835,13 +841,113 @@ function initSwiper(){
 
 }
 
+function colorizePanels(color){
+    var tiny = tinycolor('yellow');//tinycolor('#f2f200');
+    var colorEffect = tinycolor.analogous(tiny, 80);
+    //console.log(colorEffect);
+    var offset = 39;
+    var n=1;
+    var newColor;
+    $('.blog-slide').each(function(i, obj) {
+        //$(this).css({'background-color': analogous[i].toRgbString()});
+      //  console.log(colorEffect[i]);
+       // $(this).css({'background-color': colorEffect[i].toRgbString()});
+      // newColor = tinycolor.darken(colorEffect[n+offset],10);
+       newColor = tinycolor.darken(colorEffect[n+offset],10);
+       console.log('newColor='+newColor);
+         $(this).css({'background-color': newColor});
+        n++;
+    });
+
+    var newColor2;
+    $('#column3 .swiper-slide').each(function(i, obj) {
+        //$(this).css({'background-color': analogous[i].toRgbString()});
+      //  console.log(colorEffect[i]);
+       // $(this).css({'background-color': colorEffect[i].toRgbString()});
+        newColor2 = tinycolor.desaturate(colorEffect[n+offset],30);
+       // console.log('newColor='+newColor2);
+        $(this).css({'background-color': tinycolor.darken(newColor2, 5)});
+        if (Modernizr.touch && $('body').width() <= 420){
+            $(this).find(".project-title").css({'background-color': newColor2});
+            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor2,5)});
+        }
+        /*
+        $(this).find("li").each(function(i, obj) {
+            $(this).css({'background-color': tinycolor.darken(newColor2,i*5)});
+        });
+*/
+
+        n++;
+    });
 
 
+    $('#column4 .swiper-slide').each(function(i, obj) {
+        //$(this).css({'background-color': analogous[i].toRgbString()});
+      //  console.log(colorEffect[i]);
+       // $(this).css({'background-color': colorEffect[i].toRgbString()});
+        newColor = tinycolor.desaturate(colorEffect[n+offset],30);
+       // console.log('newColor='+newColor);
+        $(this).css({'background-color': tinycolor.darken(newColor,5)});
+        if (Modernizr.touch && $('body').width() <= 420){
+           $(this).find(".project-title").css({'background-color': newColor});
+            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
+        }
+        n++;
+    });
+
+
+    $('#column5 .swiper-slide').each(function(i, obj) {
+        //$(this).css({'background-color': analogous[i].toRgbString()});
+      //  console.log(colorEffect[i]);
+       // $(this).css({'background-color': colorEffect[i].toRgbString()});
+        newColor = tinycolor.desaturate(colorEffect[n+offset], 30);
+      //  console.log('newColor='+newColor);
+        $(this).css({'background-color': tinycolor.darken(newColor,5)});
+        if (Modernizr.touch && $('body').width() <= 420){
+           $(this).find(".project-title").css({'background-color': newColor});
+            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
+        }
+        n++;
+    });
+
+    $('#column6 .swiper-slide').each(function(i, obj) {
+        //$(this).css({'background-color': analogous[i].toRgbString()});
+      //  console.log(colorEffect[i]);
+       // $(this).css({'background-color': colorEffect[i].toRgbString()});
+      //  $(this).css({'background-color': tinycolor.darken(colorEffect[(i)+22], 10)});
+        newColor = tinycolor.desaturate(colorEffect[n+offset], 30);
+      //  console.log('newColor='+newColor);
+        $(this).css({'background-color': newColor});
+
+        n++;
+    });
+
+
+
+    ///hide project roles when short screen
+    if (Modernizr.touch && $('body').height() <= 480){
+        $('.project-desc ul').css({'display':'none'});
+    }
+}
 
 /*global define */
-define(['swiper','swiperScrollbar','address','tinycolor','owl'], function (swiper, swiperScrollbar, address,tinycolor,owl) {
+//define(['swiper','swiperScrollbar','address','tinycolor','owl'], function (swiper, swiperScrollbar, address,tinycolor,owl) {
+ 
+$(document).ready(function() {
     //'use strict';
-   
+    var oldOrientation = 0;
+    var updateOrientation = function(e) {
+        newOrientation = window.orientation;
+        swiperParent.reInit();
+        swiper_column2_nested.reInit();
+         swiper_column3_nested.reInit();
+         swiper_column4_nested.reInit();
+         swiper_column5_nested.reInit();
+
+        //alert(newOrientation);
+
+    };
+    $(window).bind("orientationchange", updateOrientation);
 /*
 	var tiny = tinycolor('yellow');//tinycolor('#f2f200');
 	var numItems = 7;
@@ -890,93 +996,17 @@ blue gradations
 */
 
 
-	var tiny = tinycolor('yellow');//tinycolor('#f2f200');
-    var colorEffect = tinycolor.analogous(tiny, 80);
-    console.log(colorEffect);
-    var offset = 39;
-    var n=1;
-    var newColor;
-    $('.blog-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	  // newColor = tinycolor.darken(colorEffect[n+offset],10);
-       newColor = tinycolor.darken(colorEffect[n+offset],10);
-       console.log('newColor='+newColor);
-	     $(this).css({'background-color': newColor});
-	    n++;
-	});
-
-    var newColor2;
-	$('#column3 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	    newColor2 = tinycolor.desaturate(colorEffect[n+offset],30);
-	    console.log('newColor='+newColor2);
-	    $(this).css({'background-color': tinycolor.darken(newColor2, 5)});
-        if (Modernizr.touch && $('body').width() <= 420){
-    	    $(this).find(".project-title").css({'background-color': newColor2});
-            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor2,5)});
-        }
-        /*
-        $(this).find("li").each(function(i, obj) {
-            $(this).css({'background-color': tinycolor.darken(newColor2,i*5)});
-        });
-*/
-
-	    n++;
-	});
-
-
-	$('#column4 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	  	newColor = tinycolor.desaturate(colorEffect[n+offset],30);
-        console.log('newColor='+newColor);
-	    $(this).css({'background-color': tinycolor.darken(newColor,5)});
-        if (Modernizr.touch && $('body').width() <= 420){
-	       $(this).find(".project-title").css({'background-color': newColor});
-            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
-        }
-	    n++;
-	});
-
-
-	$('#column5 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	   	newColor = tinycolor.desaturate(colorEffect[n+offset], 30);
-        console.log('newColor='+newColor);
-	    $(this).css({'background-color': tinycolor.darken(newColor,5)});
-        if (Modernizr.touch && $('body').width() <= 420){
-	       $(this).find(".project-title").css({'background-color': newColor});
-            $(this).find(".project-tray").css({'background-color': tinycolor.darken(newColor,5)});
-        }
-	    n++;
-	});
-
-	$('#column6 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	  //  $(this).css({'background-color': tinycolor.darken(colorEffect[(i)+22], 10)});
-	  	newColor = tinycolor.desaturate(colorEffect[n+offset], 30);
-        console.log('newColor='+newColor);
-	    $(this).css({'background-color': newColor});
-
-	    n++;
-	});
+	
 
 
 	if ($('body').hasClass('blog')){
    		selectInterruption();
    	}else{
        // initOwls();
+        colorizePanels();
 		initLogo();
 		initSwiper();
+        
 	}
 
 /*

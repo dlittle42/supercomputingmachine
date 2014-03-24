@@ -1,9 +1,9 @@
-require.config({
-    //baseUrl: "/scripts",
+ require.config({
+    baseUrl: "scripts",
     paths: {
-        jquery: '../bower_components/jquery/jquery',
-       // jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
-      //  jquery: '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min',
+        //jquery: '../bower_components/jquery/jquery',
+        jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
+       // jquery: '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min',
      /*   jquery: [
             '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min',
             //If the CDN location fails, load from this location
@@ -22,6 +22,7 @@ require.config({
         bootstrapTooltip: '../bower_components/sass-bootstrap/js/tooltip',
         bootstrapTransition: '../bower_components/sass-bootstrap/js/transition',
         */
+       // app: 'app',
         touche: 'touche.min',
         swiper: 'idangerous.swiper',
         swiperScrollbar: 'idangerous.swiper.scrollbar-2.1',
@@ -30,6 +31,10 @@ require.config({
         owl: 'owl-carousel/owl.carousel.min'
     },
     shim: {
+        'jquery': {
+            deps: [],
+            exports: '$'
+        },
       /*  bootstrapAffix: {
             deps: ['jquery']
         },
@@ -82,7 +87,7 @@ require.config({
     waitSeconds: 200
 });
 
-require(['app', 'touche', 'swiper','swiperScrollbar','address','tinycolor','owl','jquery'], function (app, touche, swiper,swiperScrollbar,address,tinycolor,owl, $) {
+require(['./scripts/app.js', 'touche', 'swiper','swiperScrollbar','address','tinycolor','owl','jquery'], function (app, touche, swiper,swiperScrollbar,address,tinycolor,owl, $) {
     'use strict';
     // use app here
   
