@@ -1,0 +1,24 @@
+{
+  "name": "gallery",
+  "repo": "benschwarz/gallery-css",
+  "version": "1.0.0",
+  "main": [
+    "dist/gallery.css",
+    "dist/gallery.min.css",
+    "dist/gallery.prefixed.css",
+    "dist/gallery.prefixed.min.css",
+    "dist/gallery.theme.css"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/benschwarz/gallery-css",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.0",
+    "commit": "2cf1a9c2fcb383fb1c53024dc6199ec71765d603"
+  },
+  "_source": "git://github.com/benschwarz/gallery-css.git",
+  "_target": "~1.0.0",
+  "_originalSource": "gallery-css",
+  "_direct": true
+}

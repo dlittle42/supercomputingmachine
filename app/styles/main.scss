@@ -411,6 +411,7 @@ p{
 }
 */
 
+
 .swiper-nested .swiper-slide{
   width: 100%;
   margin: 0 100px 0 0;
@@ -429,6 +430,27 @@ p{
 .swiper-nested .swiper-slide p{
 
   font-family: 'Quicksand', sans-serif;
+}
+.swiper-project{
+ // height: 360px;
+ // width: 320px;
+ // overflow: hidden;
+}
+
+.swiper-project .swiper-slide{
+    width: 320px;
+    float: left;
+    margin: 0;
+    background-color: red;
+}
+
+#testcase{
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 320px;
+  height: 360px;
+  z-index: 30000;
 }
 
 /*
@@ -1020,7 +1042,7 @@ top: 40%;
 
 .view {
     width: 320px;
-    height: 100%;
+    height: 360px;//100%;
   //  margin: 10px;
     float: left;
   //  border: 10px solid #fff;
@@ -1719,7 +1741,7 @@ ul.week li{
   }
 
 }
-
+//@media screen and (orientation:landscape) {
 @media screen and (max-width: 420px) {
 
   .logo{
