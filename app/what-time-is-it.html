@@ -57,9 +57,9 @@
             </a>
             </div> <!-- end header -->
             
-            <div class="blog-content">
+            <article class="blog-content">
                   <div id="interupt" class="comment fade-out"></div>
-                  <div class="blog-entry fade-in">
+                  <div class="blog-entry">
                     <h2>What Time Is It?</h2>
                     <div class="blog-meta">
                       <div class="date-row row" >
@@ -76,18 +76,18 @@
                           </ul>
                       </div>
                     </div>
-                    <p>Who doesn't love a clock demo? It's timely, it's infomative, it's of-the-moment. I began this one as straight CSS but soon found that, from a performance standpoint, using canvas was much more effective. Here I'm using <a href="http://kineticjs.com/" target="_blank">kinetic.js</a> to render the clock to canvas and update the body background color every second. The color spectrum is determined using a handy little library, <a href="https://github.com/bgrins/TinyColor" target="_blank">tinycolor.js</a>, to output an analogous color scheme.</p>
+                    <p>Who doesn't love a clock demo? It's timely, it's informative, it's of-the-moment. I began this one as straight CSS but soon found that, from a performance standpoint, using canvas was much more effective. Here I'm using <a href="http://kineticjs.com/" target="_blank">kinetic.js</a> to render the clock to canvas and update the body background color every second. The color spectrum is determined using a handy little library, <a href="https://github.com/bgrins/TinyColor" target="_blank">tinycolor.js</a>, to output an analogous color scheme.</p>
 
                     <h3><a href="http://codepen.io/dlittle/full/zaemx" target="_blank">SEE DEMO</a></h3>
 
                     <img src="images/blog/clock.png">
 
-                    <p>Then the trick is keeping the seconds hand and associated color in sync. Our old friend setInterval is notoriously bad at keeping to an accurate time interval which meant that if I left this demo running for a few minutes or hours it would get totally out of sync. In it's place I'm using Kinetic's Animation function which uses requestAnimationFrame to optimize and smooth out the animation.</p>
+                    <p>Then the trick is keeping the second hand and associated color in sync. Our old friend setInterval is notoriously bad at keeping to an accurate time interval which meant that if I left this demo running for a few minutes or hours it would get totally out of sync. In it's place I'm using Kinetic's Animation function which uses requestAnimationFrame to optimize and smooth out the animation.</p>
 
                     <p>And there you have it - a new color every second. If you're curious, you can find the code <a href="http://codepen.io/dlittle/pen/zaemx" target="_blank">here</a>.</p>
 
                   </div>
-            </div>
+            </article>
       
       </div>
 

@@ -85,6 +85,12 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 			if(params.onScrollbarDrag) {
 				params.onScrollbarDrag(swiper)
 			}
+	/// ANOTHER TERRIBLE HACK /////
+			var owl = $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .owl-carousel');
+			if (owl.data('owlCarousel') != 'undefined'){
+				console.log('scrollbar destroy owl');
+				owl.data('owlCarousel').destroy();
+			}
 		}
 		function dragMove(e){
 			if(!isTouched) return;
@@ -109,8 +115,22 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 				
 			}
 			if (params.snapOnRelease) {
-				swiper.swipeReset()
+				swiper.swipeReset();
+		/// HACK TO INITIALIZE OWL ON DRAG END
+				var owl = $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .owl-carousel').owlCarousel({
+                    items : 1,
+                    lazyLoad : true,
+                   // lazyEffect: "fade",
+                    navigation : false,
+                    pagination : false,
+                    singleItem:true,
+                    autoPlay: 2000,
+                    transitionStyle : "fade",
+                    mouseDrag: "false",
+                    touchDrag: "false"
+                  }).trigger('owl.next');
 			}
+
 		}
 
 
@@ -192,6 +212,7 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 				track.style.opacity=1;
 				swiper.setTransition(track,200)
 			}
+			
 		},
 		
 		onTouchEnd : function(args) {
@@ -202,6 +223,7 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 					swiper.setTransition(track,400)
 				},1000)
 			}
+		
 		},
 		
 		onSetWrapperTransform: function(pos){
