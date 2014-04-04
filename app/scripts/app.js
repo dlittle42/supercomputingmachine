@@ -551,10 +551,15 @@ function clearAlert() {
 }
 
 function userHint(){
+
 	$('#column1 .salutation').removeClass('speaking');
 	$('#column1 .salutation-comment').removeClass('speaking');
 	var delay = setTimeout(function(){
-        $('#column1 .salutation').text('Oh!').addClass('speaking');
+        if ( $('body').width() <= 320){
+         $('#hello h2').css({"font-size" : "40px", "line-height" : "40px"});
+        }
+   
+        $('#column1 .salutation').text("Work, experiments and info.").addClass('speaking');
        // $('#column1 .salutation').text('Hint?').addClass('speaking');
         $('#column1 .salutation-comment').text('Right this way...').addClass('speaking');
      }, 500)
@@ -842,14 +847,18 @@ function initSwiper(){
 	var hint = 0;
 
 	$('#column1').bind('touchstart mousedown', function(e){
-        $('#column3').addClass("preview");
+        
 		//$('#column2').addClass("preview");
         //selectPhrase();
         if (hint==0){
             //swiperParent.swipeTo(2);
             //userHint();
+
         }
         userHint();
+        if ( $("#column1").hasClass('swiper-slide-active')){
+            $('#column3').addClass("preview");
+        }
 		//if (hint==3) userHint();
 		hint++;
 	});
@@ -857,6 +866,19 @@ function initSwiper(){
 	$('#column3').bind("webkitAnimationEnd mozAnimationEnd animationEnd", function(){
 	  $(this).removeClass("preview");
 	})
+
+    var prevLeft = 0;
+    $(document).scroll( function(evt) {
+        var currentLeft = $(this).scrollLeft();
+        if ( $("#column1").hasClass('swiper-slide-active')){
+            $('#column3').addClass("preview");
+        }
+        if(prevLeft === currentLeft && hint==0) {
+            console.log("I scrolled vertically.");
+            userHint();
+            hint++;
+        } 
+    });
 
 
 
