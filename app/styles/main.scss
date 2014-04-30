@@ -65,6 +65,7 @@ a{
   height: 50px;
   width: 50px;
   margin: 20px 10px;
+  cursor: pointer;
   
   //transform: rotateZ( 45deg );
   animation:wobble 5s ease-in-out infinite;
@@ -928,6 +929,10 @@ transform: translateY(-50%);
   font-size: 20px;
 }
 
+#swiper-bio .fa-reply{
+  font-size: 16px;
+}
+
 .textcol{
   width: 50%;
   float: left;
@@ -948,7 +953,8 @@ transform: translateY(-50%);
 }
 
 
-.owl-carousel{
+.owl-carousel,
+.owl-item{
   width: 620px;
   height: 698px;
 }
@@ -1103,10 +1109,31 @@ position: relative;
 
   width: 180px;
   border: 1px solid white;
-  padding: 5px;
+  padding: 5px 10px;
   text-align: center;
   background-color: rgba(252, 246, 246, 0.17);
-  
+  transition: all 0.3s;
+
+}
+.project-block a:hover{
+  background: white;
+  color: #333;
+}
+
+#contact-info a{
+  /*
+  border: 1px solid white;
+  padding: 5px 10px;
+  text-align: center;
+  background-color: rgba(252, 246, 246, 0.17);
+  */
+  transition: all 0.3s;
+}
+#contact-info a:hover{
+  //background: white;
+  //color: rgb(110, 38, 217)
+  opacity: .4;
+  color: white;
 
 }
 
@@ -1154,7 +1181,7 @@ position: relative;
    // box-shadow: 0 0 1px #000
 }
 .project-block a.info:hover {
-    box-shadow: 0 0 5px #000
+    box-shadow: 0 0 5px #000;
 }
 
 .fa-angle-down{
@@ -1512,6 +1539,30 @@ input:focus::-ms-input-placeholder {
         height: auto;
     }
 
+/* preloading images */
+//.owl-item.loading{
+.owl-item.loading .loader{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -40px;
+  margin-left: -20px;
+  width: 40px;
+  height: 40px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: hsla(0, 0%, 100%, 0.75)
+      hsla(0, 0%, 100%, 0.75) hsla(0, 0%, 100%, 0.25) hsla(0, 0%, 100%, 0.25);
+  border-radius: 100%;
+  animation: spin .5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 /*
 @media screen and (max-width: 45em) {
@@ -1696,7 +1747,8 @@ ul.week li{
 
   }
 
-  .owl-carousel{
+  .owl-carousel,
+  .owl-item{
     width: 480px;
     height: 540px;
   }
@@ -1716,7 +1768,8 @@ ul.week li{
     height: 698px;//540px;//auto;//360px;//100%;
   }
 
-  .owl-carousel{
+  .owl-carousel,
+  .owl-item{
     width: 620px;//480px;//320px;
     height: 698px;//540px;//auto;//360px;//100%;
   }
@@ -1838,10 +1891,13 @@ ul.week li{
 
   }
 
-  .owl-carousel{
+  .owl-carousel,
+  .owl-item{
     width: 100%;//480px;
     height: 100%;//540px;
   }
+
+
 
   .project-block{
     //width: 100%;
@@ -2144,7 +2200,8 @@ line-height: 24px;
 
   }
 
-  .owl-carousel{
+  .owl-carousel,
+  .owl-item{
     width: 320px;
     height: 360px;
   }

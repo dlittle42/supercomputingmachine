@@ -14,16 +14,14 @@
 //Modernizr.touch=true;
 
  var document = window.document;
+ var domain = document.domain;
 
+ if ( domain == 'dev.supercomputingmachine.com'){
+    var base = "dist/";
+ }else{
+    var base ="";
+ }
 
-
-/*
-        if (mobilecheck()){
-            slides = 1;
-        }else{
-            slides = 3;
-        }
-*/
 
 var hLoop,
     vLoop = true,
@@ -35,52 +33,7 @@ var hLoop,
     if (detectIE() != false){
         vLoop = false;
     }
-    /*
-if (Modernizr.touch && $('body').width() <= 568) { 
-    //up to iphone5 landscape
-    //mobile
-
-    leftOffset = 0;
-    hLoop = false;
-}else if (Modernizr.touch && $('body').width() <= 768) { 
-    //mobile
-  //   alert('is tablet');
-    //slides = 1;
-    slides = 'auto';
-    $('.full-slide').css('width', '100%').css('width', '-=150px');
-    doScroll=false;
-    hLoop = false;//true;
-    freeScroll = false;
-    leftOffset = 100;
-} else if (Modernizr.touch) { 
-    //tablet
- //   alert('is touch enabled');
-    slides = 'auto';
-    $('.full-slide').css('width', '100%').css('width', '-=150px');
-    doScroll=false;
-    hLoop = true;
-    freeScroll = false;
-    leftOffset = 100;
-} else { 
-    //desktop
-    $('.full-slide').css('width', '100%').css('width', '-=150px');
-    slides = 'auto';
-    
-    doScroll = {
-        
-          container :'.swiper-scrollbar',
-          hide: false,
-          draggable: true,
-         // watchActiveIndex: true,
-          snapOnRelease: true
-    };
-    
-   hLoop = false;
-   freeScroll = true;
-   leftOffset = 100;
-
-}
-*/
+   
 
 if (Modernizr.touch){
     doScroll=false;
@@ -107,7 +60,6 @@ if ($('body').width() <= phablet) {
 }else{
     slides = 'auto';
     $('.full-slide').css('width', '100%').css('width', '-=150px');
-    //doScroll=false;
     hLoop = false;//true;
     freeScroll = true;//false;
     leftOffset = 100;
@@ -182,26 +134,7 @@ function detectIE() {
             };
             
 
-/*
-var sayings = {
-	"headlines" : [
-        "Oh.",
-        "Greetings",
-        "Aloha",
-        "Get Ready"
-    ],
-    "comment" : [
-        "Didn't see you there",
-        "About time for a change, right?",
-        "Did you see that game last night?!",
-        "Lemme get a coffee. Be right back."
 
-    ]
-
-
-
-}
-*/
 
 //var greetingJSON = {"phrases": [
 var column1_JSON = {"phrases": [
@@ -259,212 +192,12 @@ var column1_JSON = {"phrases": [
     ]
 };
 
-//var blogJSON = {"phrases": [
-var column2_JSON = {"phrases": [
-        {	
-        	"salutation": "Here's what I'm thinking...",
-        	"comment": "Didn't see you there."
-        },
-        {	
-        	"salutation": "Let me see what I have here...",
-        	"comment": "You startled me."
-        },
-        {	
-        	"salutation": "Every self-respecting site needs a blog, right?",
-        	"comment": "It's about time."
-        },
-        {	
-        	"salutation": "Thought you might want to see this...",
-        	"comment": "I thought you'd never show."
-        },
-        {	
-        	"salutation": "Yeah, I've been doing a little writing...",
-        	"comment": "You've come to the right place."
-        },
-        {	
-        	"salutation": "I've been working on these lately...",
-        	"comment": "It's a fine day for parcheesi."
-        },
-        {	
-        	"salutation": "Racking my digital brain...",
-        	"comment": "It's a fine day for parcheesi."
-        }
-    ]
-};
-
-//var websiteJSON = {"phrases": [
-var column3_JSON = {"phrases": [
-        {	
-        	"salutation": "This isn't the only website I've made...",
-        	"comment": "Didn't see you there."
-        },
-        {	
-        	"salutation": "When I'm not busy here, this is what I've been up to...",
-        	"comment": "You startled me."
-        },
-        {	
-        	"salutation": "Just a small sampling of websites...",
-        	"comment": "It's about time."
-        },
-        {	
-        	"salutation": "Retreiving website portfolio...",
-        	"comment": "I thought you'd never show."
-        },
-        {	
-        	"salutation": "Yup, websites...",
-        	"comment": "You've come to the right place."
-        },
-        {	
-        	"salutation": "Got your websites right here...",
-        	"comment": "It's a fine day for parcheesi."
-        },
-        {	
-        	"salutation": "Work. Let's start with websites...",
-        	"comment": "Did you catch that game last night?"
-        }
-    ]
-};
-//var appsJSON = {"phrases": [
-var column4_JSON = {"phrases": [
-        {	
-        	"salutation": "Oh yeah. I have apps too...",
-        	"comment": "Didn't see you there."
-        },
-        {	
-        	"salutation": "Apps. Not websites...",
-        	"comment": "You startled me."
-        },
-        {	
-        	"salutation": "Let's see some apps...",
-        	"comment": "It's about time."
-        },
-        {	
-        	"salutation": "You might like these apps...",
-        	"comment": "I thought you'd never show."
-        }
-    ]
-};
-//var adsJSON = {"phrases": [
-var column5_JSON = {"phrases": [
-        {	
-        	"salutation": "Got some ads here too...",
-        	"comment": "Didn't see you there."
-        },
-        {	
-        	"salutation": "Not sites. Not apps. It's ads!",
-        	"comment": "You startled me."
-        },
-        {	
-        	"salutation": "Fetching ads...",
-        	"comment": "It's about time."
-        },
-        {	
-        	"salutation": "What would the internet be without ads?",
-        	"comment": "I thought you'd never show."
-        },
-        {	
-        	"salutation": "Ads. Or Rich Media if you're fancy...",
-        	"comment": "You've come to the right place."
-        },
-        {	
-        	"salutation": "Tabulating results...",
-        	"comment": "It's a fine day for parcheesi."
-        }
-    ]
-};
-//var aboutJSON = {"phrases": [
-var column6_JSON = {"phrases": [
-        {	
-        	"salutation": "A little about myself? Gladly...",
-        	"comment": "Didn't see you there."
-        },
-        {	
-        	"salutation": "There's something you should know...",
-        	"comment": "You startled me."
-        },
-        {	
-        	"salutation": "Here's the file on me...",
-        	"comment": "It's about time."
-        },
-        {	
-        	"salutation": "Seems like a good time to get to know each other better...",
-        	"comment": "I thought you'd never show."
-        },
-        {	
-        	"salutation": "A-ha! Here's those social media links...",
-        	"comment": "You've come to the right place."
-        },
-        {	
-        	"salutation": "For your consideration...",
-        	"comment": "It's a fine day for parcheesi."
-        },
-        {	
-        	"salutation": "My creator is a great man. ( He made me say that. )",
-        	"comment": "Did you catch that game last night?"
-        },
-        {	
-        	"salutation": "Background check processing...",
-        	"comment": "Let us begin our journey."
-        }
-    ]
-};
-var interruptionJSON = {"phrases": [
-        {	
-        	"salutation": "Oh.",
-        	"comment": "You're going to love this..."
-        },
-        {	
-        	"salutation": "Blimey!",
-        	"comment": "Topical, eh?"
-        },
-        {	
-        	"salutation": "Well,",
-        	"comment": "Ah, good choice."
-        },
-        {	
-        	"salutation": "Hey!",
-        	"comment": "Check this out."
-        },
-        {	
-        	"salutation": "Hola.",
-        	"comment": "One of my personal favorites..."
-        },
-        {	
-        	"salutation": "Hello.",
-        	"comment": "Get ready."
-        },
-        {	
-        	"salutation": "Dude...",
-        	"comment": "Come on internet. Load already."
-        },
-        {	
-        	"salutation": "Face front, true believer!",
-        	"comment": "Ah-Choo! Excuse me."
-        },
-        {	
-        	"salutation": "Why...",
-        	"comment": "So my inspiration for this one was... well. You'll see."
-        },
-        {	
-        	"salutation": "By the Hoary Hosts of Hoggarth!",
-        	"comment": "Really glad you picked this one."
-        },
-        {	
-        	"salutation": "Greg Oden's Raven!",
-        	"comment": "Let me look that up for you."
-        },
-    ]
-};
 function selectPhrase(column){
 
     if (!column) var column = 'column1';
-  //  console.log(column);
-  //  targetArray = window['column1_JSON'];
-    //targetArray = eval(column+'_JSON');
-   // var newColumn = eval('swiper_'+column+'_nested');
 
    // console.log('newColumn = '+newColumn);
-  //  if ( newColumn == 'undefined'){
+
         var rand = Math.floor(Math.random()*column1_JSON.phrases.length)
         console.log(column1_JSON.phrases[rand].salutation);
         console.log(column1_JSON.phrases[rand].comment);
@@ -481,21 +214,7 @@ function selectPhrase(column){
 
         if (column != 'column1'){
             $('.logo').addClass("touched");
-           // eval('set_'+column+'Swiper()');
- /*
-            if(column == 'column2' && typeof swiper_column2_nested == "undefined") setBlogSwiper();
-            if(column == 'column3' && typeof swiper_column3_nested == "undefined") setBlogSwiper();
-            if(column == 'column4' && typeof swiper_column4_nested == "undefined") setBlogSwiper();
-            if(column == 'column5' && typeof swiper_column5_nested == "undefined") setBlogSwiper();
-           timeoutID = window.setTimeout(function(){
-                $('#'+column+' .salutation').fadeOut(200);
-                //$('#'+column+' .comment').slideUp(200);
-                $('#'+column+' .comment').css({'height': 0});
-                $('#'+column+' .swiper-slide').addClass('new-item');
-                if(column == 'column2') setBlogSwiper();
-                //$('.logo').delay(1000).removeClass("touched");
-            }, 200);
-*/
+           
         }
    // }
 }
@@ -697,8 +416,8 @@ function initializeVerticalSwiper(n){
                     singleItem:true,
                     autoPlay: 2000,
                     transitionStyle : "fade",
-                    mouseDrag: "false",
-                    touchDrag: "false"
+                    mouseDrag: false,
+                    touchDrag: false
                   }).trigger('owl.next');
                // owl.data('owlCarousel').next();
 
@@ -723,59 +442,6 @@ function initializeVerticalSwiper(n){
     }
 }
 
-function initializeCol2(){
-   
-
-    swiper_column2_nested = new Swiper('.swiper-nested',{
-        mode: 'vertical',
-       // pagination: paginate,
-       // paginationClickable: true,
-      //  freeMode: true,
-     //   freeModeFluid: true,
-      //  keyboardControl: true,
-      //  cssWidthAndHeight: true,
-      //  mousewheelControl: freeScroll,
-      //  mousewheelControlForceToAxis: freeScroll,
-     //   slidesPerView: 'auto',
-     //   loop: true,
-     //   loopedSlides: 6,
-        slidesPerView: 2,
-        
-        onFirstInit: function(swiper){
-            alert('first init Col 2');
-          /* 
-            $('#column2 .swiper-nested .owl-carousel').owlCarousel({
-                items : 1,
-                //lazyLoad : true,
-               // lazyEffect: "fade",
-                navigation : false,
-                pagination : false,
-                singleItem:true,
-               // autoPlay: 1000,
-                transitionStyle : "fade",
-                mouseDrag: "false",
-                touchDrag: "false"
-              });
-          */
-        }
-      });
-    
-}
-
-function initOwls(){
-    $('.owl-carousel').owlCarousel({
-        items : 1,
-        lazyLoad : true,
-       // lazyEffect: "fade",
-        navigation : false,
-        pagination : false,
-        singleItem:true,
-        //autoPlay: 1000,
-       // transitionStyle : "fade",
-        mouseDrag: "false",
-        touchDrag: "false"
-      });
-}
 
 
 function initLogo(){
@@ -784,19 +450,28 @@ function initLogo(){
 	if( 'ontouchstart' in window ){ var click = 'touchstart'; }
 	else { var click = 'click'; }
 
-
-
-	console.log("it's simple");
-	
 	//selectPhrase();
 	
 	$('.logo').on({
 		 click : function(){ 
 		 	/* do something... */ 
-		 	$('#hello').fadeOut(100, function(){
-		  		selectPhrase();
-	            $('#hello').delay(200).fadeIn(500);
-	        });
+
+            if ($('body').hasClass('blog')){
+
+                window.location = "/"+base+"blog";
+
+            }else{
+
+    		 	$('#hello').fadeOut(100, function(){
+    		  		selectPhrase();
+    	            $('#hello').delay(200).fadeIn(500);
+                    //console.log('logo click: active =' +swiperParent.activeIndex);
+                    if (swiperParent.activeIndex != 0){
+                        swiperParent.swipeTo(0, 500);
+                    }
+
+    	        });
+             }
 
 		 } 
 	});
@@ -833,13 +508,15 @@ function initLogo(){
 
 }
 
-function initSwiper(){
+function initSwiper(initial){
 	console.log('swiper goooooooo');
 	var winHeight = $(window).height();
     var winWidth = $(window).width();
     $('.swiper-container').css({'height': winHeight});
     if (winWidth <= 620 ){
         $('.view').css({'height': winWidth*1.125});
+
+
     }
     
 	//$('.swiper-container').css({'height': winHeight, 'width': winWidth});
@@ -882,7 +559,8 @@ function initSwiper(){
 
 
 
-		
+	  if(typeof(initial)==='undefined') initial = 0;
+
 
 	  swiperParent = new Swiper('.swiper-parent',{
 	 // 	slidesPerView:1,
@@ -893,7 +571,7 @@ function initSwiper(){
 	  	keyboardControl: true,
 	  	offsetPxBefore: leftOffset,
        // useCSS3Transforms:false,
-	  //	initialSlide: 0,
+	  	initialSlide: initial,//0,
         updateOnImagesReady: false,
 	  	mousewheelControl: freeScroll,
 	    mousewheelControlForceToAxis: freeScroll,
@@ -907,18 +585,16 @@ function initSwiper(){
 	    	$('.swiper-parent').find('.salutation-comment').addClass('speaking');
             $('body').removeClass("thinking");
 
-            //set_column2Swiper();
-           // var n = swiperParent.activeIndex;
-            //initializeCol2();
-          //  initializeVerticalSwiper(2);
-
-            initializeVerticalSwiper(3);
-            initializeVerticalSwiper(4);
-            initializeVerticalSwiper(5);
+         
+                initializeVerticalSwiper(3);
+                initializeVerticalSwiper(4);
+                initializeVerticalSwiper(5);
+        
+            
 
             //WHy only the columns with owl carousels? to avoid the init flash. Also doing all at once makes the transform on the bio column off on iphone(?!)
           //  initializeVerticalSwiper(6);
-	    //	initProjectSlides();
+
 
 	    },
         onSlideChangeStart: function(swiper){
@@ -962,29 +638,32 @@ function initSwiper(){
                     singleItem:true,
                     autoPlay: 2000,
                     transitionStyle : "fade",
-                    mouseDrag: "false",
-                    touchDrag: "false"
+                    mouseDrag: false,
+                    touchDrag: false
                   }).trigger('owl.next');
 
                 console.log('****** initialized: '+owl.data('owlCarousel'))
 
                // owl.data('owlCarousel').next();
+          
+                if ( n == 0 ){
+                    $.address.value('/'+base);
+                }else if ( n ==1 ){
+                    $.address.value("/"+base+"portfolio/websites");
+                }else if ( n ==2 ){
+                    $.address.value("/"+base+"portfolio/apps");
+                }else if ( n ==3 ){
+                    $.address.value("/"+base+"portfolio/ads");
+                }else if ( n ==4 ){
+                    $.address.value("/"+base+"about");
+                }else if ( n ==5 ){
+                    $.address.value("/"+base+"blog");
+                }
+               
               
 
              }
-            /*
-            var slide = window['swiper_column'+n+'_nested'];
-            console.log(":::::slide is "+slide);
-            if (slide != 'undefined') slide.destroy();
-            */
-         //   $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .view .owl-carousel').trigger('owl.play',1000);
-/*
-            if (n==0){
-                console.log( 'first frame again');
-               // selectPhrase('column1');
-            }
-*/
-            //selectPhrase('column'+(n+1));
+           
             initializeVerticalSwiper(next);
 
         
@@ -1284,18 +963,12 @@ blue gradations
 	
 
 
-	if ($('body').hasClass('blog')){
-   		//selectInterruption();
-   	}else{
-       // initOwls();
-        colorizePanels();
 
-		initLogo();
-		initSwiper();
-       // alert('IE ' + detectIE());
-        
-	}
-/*
+    colorizePanels();
+    initLogo();
+	initSwiper();
+
+
 	var init = true,
     home_uri = window.location.origin,
     state = window.history.pushState !== undefined;
@@ -1322,21 +995,31 @@ blue gradations
                     $(this).toggleClass('selected', $(this).text() == match);
                 });
                 $.address.title([title].concat(names).join(' | '));
-				if ( $.address.path() == "/blog"){
-					swiperParent.swipeTo(1);
-				}else if ( $.address.path() == "/portfolio/websites"){
-					swiperParent.swipeTo(2);
-				}else if ( $.address.path() == "/portfolio/apps"){
-					swiperParent.swipeTo(3);
-				}else if ( $.address.path() == "/portfolio/ads"){
-					swiperParent.swipeTo(4);
-				}else if ( $.address.path() == "/about"){
-					swiperParent.swipeTo(5, 2000);
-				}
+				if ( $.address.path() == "/"+base){
+                    swiperParent.swipeTo(0);
+                    //initSwiper(0);
+                }else if ( $.address.path() == "/"+base+"portfolio/websites"){
+					swiperParent.swipeTo(1, 200);
+                    //initSwiper(1);
+				}else if ( $.address.path() == "/"+base+"portfolio/apps"){
+					swiperParent.swipeTo(2, 200);
+                    //initSwiper(2);
+				}else if ( $.address.path() == "/"+base+"portfolio/ads"){
+					swiperParent.swipeTo(3, 200);
+                    //initSwiper(3);
+				}else if ( $.address.path() == "/"+base+"about"){
+                    initializeVerticalSwiper(6);
+					swiperParent.swipeTo(4, 200);
+                    //initSwiper(4);
+				}if ( $.address.path() == "/"+base+"blog"){
+                    initializeVerticalSwiper(7);
+
+                    swiperParent.swipeTo(5, 200);
+                    //initSwiper(5);
+                }
                 //swiperParent.swipeTo(4);
                
             });
 	
-*/
 	
 });
