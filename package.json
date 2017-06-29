@@ -1,6 +1,6 @@
 {
-  "name": "hi-there4",
-  "version": "0.0.0",
+  "name": "supercomputingmachine",
+  "version": "0.1.2",
   "dependencies": {
     "grunt-requirejs": "^0.4.1"
   },

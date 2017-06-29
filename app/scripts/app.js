@@ -136,79 +136,59 @@ function detectIE() {
 
 
 
-//var greetingJSON = {"phrases": [
-var column1_JSON = {"phrases": [
-        {	
-        	"salutation": "Hooray!",
-        	"comment": "You made it."
-        },
-        {	
-        	"salutation": "Blimey!",
-        	"comment": "You startled me."
-        },
-        {	
-        	"salutation": "OK,",
-        	"comment": "Let's get to it!"
-        },
-        {	
-        	"salutation": "Hey!",
-        	"comment": "I thought you might show up."
-        },
-        {	
-        	"salutation": "Hola.",
-        	"comment": "You've come to the right place."
-        },
-        {	
-        	"salutation": "Hello.",
-        	"comment": "It's a fine day for parcheesi."
-        },
-       /* {	
-        	"salutation": "Face front, true believer!",
-        	"comment": "Let us begin our journey."
-        },*/
 
-        {	
-        	"salutation": "By the Hoary Hosts of Hoggarth!",
-        	"comment": "Let's get this show on the road."
-        },
-        {	
-        	"salutation": "Greg Oden's Raven!",
-        	"comment": "We've much to do..."
-        },
-        {	
-        	"salutation": "Hey!",
-        	"comment": "Look at you."
-        },
-        {	
-        	"salutation": "HTML, CSS, JS. ",
-        	"comment": "And many more acronyms..."
-        }
-        /*,
-        {   
-            "salutation": "Jiminy Cricket,",
-            "comment": "Is winter over yet?"
-        }
-        */
-    ]
-};
+
+
+var txt = new TextFx(document.querySelector('.salutation'));
+
+     txt.hide('fx7', function(){
+        console.log('first hide complete')
+      });
+
+
 
 function selectPhrase(column){
+
+    var rand = Math.floor(Math.random()*setting.phrases.length);
+    var salut = setting.phrases[rand].salutation;
+    var comment = setting.phrases[rand].comment;
+    console.log(salut)
+    console.log(comment)
+
+     txt.hide('fx7', function(){
+        console.log('hide complete')
+         $('.salutation-comment').text(comment);
+
+        $('h2').html(salut);
+       // console.log($('h1'))
+        txt._init();
+
+        txt.show('fx7', function(){
+          console.log('show complete')
+
+        });
+      });
+ 
+
+
+
+
+
 
     if (!column) var column = 'column1';
 
    // console.log('newColumn = '+newColumn);
 
-        var rand = Math.floor(Math.random()*column1_JSON.phrases.length)
-        console.log(column1_JSON.phrases[rand].salutation);
-        console.log(column1_JSON.phrases[rand].comment);
+   /*     var rand = Math.floor(Math.random()*column1_JSON.phrases.length)
+
         $('#'+column+' .salutation').text(column1_JSON.phrases[rand].salutation);
         $('#'+column+' .salutation').fadeIn(200);
-        
+        */
         //timeoutSpinner = window.setTimeout(function(){
         $('.logo').addClass("touched");
        // }, 1000);
 
-        $('.salutation-comment').text(column1_JSON.phrases[rand].comment);
+        
 
 
 
@@ -581,8 +561,8 @@ function initSwiper(initial){
 	    onFirstInit: function(swiper){
 	    	//alert('first init');
 	    	selectPhrase();
-	    	$('.swiper-parent').find('.salutation').addClass('speaking');
-	    	$('.swiper-parent').find('.salutation-comment').addClass('speaking');
+	    //	$('.swiper-parent').find('.salutation').addClass('speaking');
+	    //	$('.swiper-parent').find('.salutation-comment').addClass('speaking');
             $('body').removeClass("thinking");
 
          
@@ -961,12 +941,15 @@ blue gradations
 
 
 	
-
+    
 
 
     colorizePanels();
     initLogo();
 	initSwiper();
+
+
+    
 
 
 	var init = true,

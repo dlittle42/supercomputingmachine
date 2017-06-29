@@ -65,6 +65,7 @@
             <![endif]-->
 
             <div class="page-container">
+              <div id="container"></div>
               <header class="header">
             <!--
                <div class="circle unselectable" id="logo"><h1>Super Computing Machine</h1></div>
@@ -89,10 +90,26 @@
               <!--- FIRST COLUMN: INTRO ---------------------------------->
 
               <section class="swiper-slide yellow-slide full-slide color" id="column1">
-                <div id="hello">
+               <!-- <div id="hello">
                   <h2 class="salutation">Hello there.</h2>
                   <p class="salutation-comment">It's a fine day for parcheesi.</p>
                 </div>
+                -->
+              <div id="msg">
+                <div id="hello">
+                  <h2 class="salutation">Hello there.</h2>
+                  <p class="salutation-comment">It's a fine day for parcheesi.</p>
+                  <ul>
+                    <li><a href="#">Websites</a></li>
+                    <li><a href="#">Apps</a></li>
+                    <li><a href="#">Advertising</a></li>
+                    <li><a href="#">Bio</a></li>
+                    <li><a href="#">Blog</a></li>
+                  </ul>
+                  
+                </div>
+              </div>
+                
 
               </section>
 
@@ -1225,6 +1242,81 @@
 <script src="scripts/idangerous.swiper.scrollbar.js"></script>
 <script src="scripts/owl.carousel.js"></script>
 <script src="scripts/jquery.address.js"></script>
+<script src="scripts/charming.min.js"></script>
+<script src="scripts/anime.min.js"></script>
+<script src="scripts/textfx.js"></script>
+<script src="scripts/setting/index.js"></script>
+
+<script src="bower_components/three.js/build/three.js"></script>
+  <script src="bower_components/three.js/examples/js/libs/ammo.js"></script>
+  <script src="bower_components/three.js/examples/js/controls/OrbitControls.js"></script>
+  <script src="bower_components/three.js/examples/js/Detector.js"></script>
+  <script src="bower_components/three.js/examples/js/libs/stats.min.js"></script>
+
+  <script src="bower_components/three.js/examples/js/ConvexObjectBreaker.js"></script>
+  <script src="bower_components/three.js/examples/js/QuickHull.js"></script>
+  <script src="bower_components/three.js/examples/js/geometries/ConvexGeometry.js"></script>
+
+  <script src="bower_components/three.js/examples/js/utils/GeometryUtils.js"></script>
+
+  <script src="bower_components/dat.gui/dat.gui.js"></script>
+
+<!-- postprocessing -->
+  <script src="bower_components/three.js/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/ShaderPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/MaskPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/BloomPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/FilmPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/DotScreenPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/TexturePass.js"></script>
+
+
+<!-- shaders -->
+  <script src="bower_components/three.js/examples/js/shaders/BleachBypassShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/FilmShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/HorizontalBlurShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/SepiaShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/VerticalBlurShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/VignetteShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/RGBShiftShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/DotScreenShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/FXAAShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/ConvolutionShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/LuminosityHighPassShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/ColorifyShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/CopyShader.js"></script>
+  <script src="bower_components/three.js/examples/js/shaders/TriangleBlurShader.js"></script>
+
+  <!-- replace built-in triangulation with PnlTri.js -->
+  <script src="bower_components/three.js/examples/js/libs/pnltri.min.js"></script>
+  <script>
+      THREE.ShapeUtils.triangulateShape = ( function () {
+          var pnlTriangulator = new PNLTRI.Triangulator();
+          function removeDupEndPts(points) {
+
+              var l = points.length;
+
+              if ( l > 2 && points[ l - 1 ].equals( points[ 0 ] ) ) {
+
+                  points.pop();
+
+              }
+
+          }
+
+          return function triangulateShape( contour, holes ) {
+              // console.log("new Triangulation: PnlTri.js " + PNLTRI.REVISION );
+
+              removeDupEndPts( contour );
+              holes.forEach( removeDupEndPts );
+
+              return pnlTriangulator.triangulate_polygon( [ contour ].concat(holes) );
+          };
+      } )();
+  </script>
+
+  <script src="scripts/threedee.js"></script>
 
 
 <!-- endbuild -->
