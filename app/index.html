@@ -36,7 +36,7 @@
       <!-- build:css(.tmp) /styles/main.css -->
       <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
       <link rel="stylesheet" href="styles/idangerous.swiper.css">
-      <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css">
+     <!-- <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css"> -->
       <link rel="stylesheet" href="styles/owl.carousel.css">
       <link rel="stylesheet" href="styles/owl.theme.css">
       <link rel="stylesheet" href="styles/owl.transitions.css">
@@ -65,6 +65,7 @@
             <![endif]-->
 
             <div class="page-container">
+
               <header class="header">
             <!--
                <div class="circle unselectable" id="logo"><h1>Super Computing Machine</h1></div>
@@ -89,10 +90,21 @@
               <!--- FIRST COLUMN: INTRO ---------------------------------->
 
               <section class="swiper-slide yellow-slide full-slide color" id="column1">
+                <div id="container"></div>
                 <div id="hello">
                   <h2 class="salutation">Hello there.</h2>
                   <p class="salutation-comment">It's a fine day for parcheesi.</p>
+                  
                 </div>
+                <div id="quicklinks">
+                  <ul>
+                    <li><a href="/portfolio/websites" class="strip letters" id="goApps">Projects</a></li>
+                    <li><a href="/about" class="strip letters" id="goBio">Bio</a></li>
+                    <li><a href="/blog" class="strip letters" id="goBlog">Text</a></li>
+                  </ul>
+
+                </div>
+
 
               </section>
 
@@ -1177,7 +1189,7 @@
       </div>
 
     </div>
-    <div class="swiper-scrollbar"></div>
+   <!-- <div class="swiper-scrollbar"></div> -->
   </div>
 
   <!-- build:js /scripts/vendor.js -->
@@ -1222,7 +1234,7 @@
 <script src="scripts/tinycolor-min.js"></script>
 <script src="scripts/touche.min.js"></script> 
 <script src="scripts/idangerous.swiper.js"></script>
-<script src="scripts/idangerous.swiper.scrollbar.js"></script>
+<!--<script src="scripts/idangerous.swiper.scrollbar.js"></script>-->
 <script src="scripts/owl.carousel.js"></script>
 <script src="scripts/jquery.address.js"></script>
 
@@ -1233,13 +1245,14 @@
 
 <script src="bower_components/three.js/build/three.js"></script>
   <script src="bower_components/three.js/examples/js/libs/ammo.js"></script>
-  <script src="bower_components/three.js/examples/js/controls/OrbitControls.js"></script>
+<!--  <script src="bower_components/three.js/examples/js/controls/OrbitControls.js"></script> -->
   <script src="bower_components/three.js/examples/js/Detector.js"></script>
   <script src="bower_components/three.js/examples/js/libs/stats.min.js"></script>
-
+<!--
   <script src="bower_components/three.js/examples/js/ConvexObjectBreaker.js"></script>
   <script src="bower_components/three.js/examples/js/QuickHull.js"></script>
   <script src="bower_components/three.js/examples/js/geometries/ConvexGeometry.js"></script>
+  -->
 
   <script src="bower_components/three.js/examples/js/utils/GeometryUtils.js"></script>
 
@@ -1247,16 +1260,18 @@
 
 <!-- postprocessing -->
   <script src="bower_components/three.js/examples/js/postprocessing/EffectComposer.js"></script>
-  <script src="bower_components/three.js/examples/js/postprocessing/ShaderPass.js"></script>
   <script src="bower_components/three.js/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/ShaderPass.js"></script>
+  <!--
   <script src="bower_components/three.js/examples/js/postprocessing/MaskPass.js"></script>
-  <script src="bower_components/three.js/examples/js/postprocessing/BloomPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/BloomPass.js"></script> -->
   <script src="bower_components/three.js/examples/js/postprocessing/FilmPass.js"></script>
-  <script src="bower_components/three.js/examples/js/postprocessing/DotScreenPass.js"></script>
-  <script src="bower_components/three.js/examples/js/postprocessing/TexturePass.js"></script>
 
 
 <!-- shaders -->
+<script src="bower_components/three.js/examples/js/shaders/FilmShader.js"></script>
+<script src="bower_components/three.js/examples/js/shaders/CopyShader.js"></script>
+<!--
   <script src="bower_components/three.js/examples/js/shaders/BleachBypassShader.js"></script>
   <script src="bower_components/three.js/examples/js/shaders/FilmShader.js"></script>
   <script src="bower_components/three.js/examples/js/shaders/HorizontalBlurShader.js"></script>
@@ -1271,6 +1286,7 @@
   <script src="bower_components/three.js/examples/js/shaders/ColorifyShader.js"></script>
   <script src="bower_components/three.js/examples/js/shaders/CopyShader.js"></script>
   <script src="bower_components/three.js/examples/js/shaders/TriangleBlurShader.js"></script>
+  -->
 
   <!-- replace built-in triangulation with PnlTri.js -->
   <script src="bower_components/three.js/examples/js/libs/pnltri.min.js"></script>
@@ -1300,7 +1316,7 @@
       } )();
   </script>
 
-  <script src="scripts/threedee.js"></script>
+  <script src="scripts/threedee2.js"></script>
 
 
 <!-- build:js({app,.tmp}) /scripts/main.js -->

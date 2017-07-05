@@ -22,6 +22,40 @@
     var base ="";
  }
 
+ var setting = {
+
+    voices: [
+          'Alice',
+          'Alva',
+          'Bruce',
+          'Damayanti',
+          'Diego',
+          'Ellen',
+          'Fred',
+          'Ioana',
+          'Joana',
+          'Junior',
+          'Kanya',
+          'Kyoko',
+          'Lekha',
+          'Melina',
+          'Milena',
+          'Moira',
+          'Monica',
+          'Nora',
+          'Satu',
+          'Tarik',
+          'Thomas',
+          'Ting-Ting',
+          'Yuna',
+          'Zosia',
+          'Zuzana'
+         // 'Google 普通话（中国大陆）',
+         // 'Google 粤語（香港）',
+         // 'Google 國語（臺灣）'
+    ]
+};
+
 
 var hLoop,
     vLoop = true,
@@ -35,23 +69,6 @@ var hLoop,
     }
    
 
-if (Modernizr.touch){
-    doScroll=false;
-    
-
-}else{
-    doScroll = {
-        
-          container :'.swiper-scrollbar',
-          hide: false,
-          draggable: true,
-         // watchActiveIndex: true,
-          snapOnRelease: true,
-          onTouchMoveEnd : function(){
-            alert("scrolled");
-            }
-    };
-}
 
 if ($('body').width() <= phablet) { 
     leftOffset = 0;
@@ -71,6 +88,61 @@ if ($('body').width() <= phablet) {
 if (!String.prototype.trim) {
 	String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
 }
+
+// voice code ////
+
+var voiceList = setting.voices;
+  var randomVoice = voiceList[Math.floor(Math.random()*voiceList.length)];
+
+  var msg = new SpeechSynthesisUtterance();
+ // console.log("!!"+msg);
+  msg.text = 'Super Computing Machine';
+  msg.onboundary = function(event) {
+     // console.log('The msg boundary is to be spoken.')
+  };
+
+          
+  // Queue this utterance.
+
+  // make sure voices are loaded before playing. ?? get it to work on repeat???
+  window.speechSynthesis.onvoiceschanged = function () {
+
+    var voices = window.speechSynthesis.getVoices();
+
+    //console.dir(voices);
+    msg.voice = voices.filter(function(voice) { return voice.name == randomVoice })[0];
+  //  window.speechSynthesis.speak(msg);
+    //showName();
+  };
+
+  //document.getElementById("trigger").addEventListener('touchstart', handleEvent);
+  //on iOS, only 'click' works on an a tag
+
+
+ //window.addEventListener('touchstart', newVoice);
+ //window.addEventListener('mousedown', newVoice);
+
+  function newVoice(e){
+
+  //  handleEvent(e);
+  // alert('new voice')
+   /* var saying = Math.floor(Math.random()*setting.phrases.length)
+    msg.text = setting.phrases[saying].salutation + '     '+ setting.phrases[saying].comment;
+
+  */
+
+
+    var voices = window.speechSynthesis.getVoices();
+    randomVoice = voiceList[Math.floor(Math.random()*voiceList.length)];
+  //  randomVoice = 'Fred';
+   // console.log(randomVoice)
+    msg.voice = voices.filter(function(voice) { return voice.name == randomVoice })[0];
+    window.speechSynthesis.speak(msg);
+
+    $('.logo').addClass("touched");
+    $('body').removeClass("thinking");
+   // showName();
+  }
 
 
 function mobilecheck() {
@@ -162,10 +234,10 @@ var column1_JSON = {"phrases": [
         	"salutation": "Hello.",
         	"comment": "It's a fine day for parcheesi."
         },
-       /* {	
+       {	
         	"salutation": "Face front, true believer!",
         	"comment": "Let us begin our journey."
-        },*/
+        },
 
         {	
         	"salutation": "By the Hoary Hosts of Hoggarth!",
@@ -179,10 +251,12 @@ var column1_JSON = {"phrases": [
         	"salutation": "Hey!",
         	"comment": "Look at you."
         },
+        /*
         {	
         	"salutation": "HTML, CSS, JS. ",
         	"comment": "And many more acronyms..."
         }
+        */
         /*,
         {   
             "salutation": "Jiminy Cricket,",
@@ -199,16 +273,21 @@ function selectPhrase(column){
    // console.log('newColumn = '+newColumn);
 
         var rand = Math.floor(Math.random()*column1_JSON.phrases.length)
-        console.log(column1_JSON.phrases[rand].salutation);
-        console.log(column1_JSON.phrases[rand].comment);
+      //  console.log(column1_JSON.phrases[rand].salutation);
+      //  console.log(column1_JSON.phrases[rand].comment);
         $('#'+column+' .salutation').text(column1_JSON.phrases[rand].salutation);
         $('#'+column+' .salutation').fadeIn(200);
         
         //timeoutSpinner = window.setTimeout(function(){
-        $('.logo').addClass("touched");
+      //  $('.logo').addClass("touched");
        // }, 1000);
 
         $('.salutation-comment').text(column1_JSON.phrases[rand].comment);
+
+        // speak quote ///
+    //    msg.text = column1_JSON.phrases[rand].salutation + ". "+column1_JSON.phrases[rand].comment;
+    //    newVoice();
+      //  newVoice();
 
 
 
@@ -251,12 +330,12 @@ function selectInterruption(){
 	//$('#salutation').text(greetingJSON.phrases[rand].salutation);
 	var msg = $('#interupt');
 	msg.html('<h2>'+interruptionJSON.phrases[rand].comment+'</h2>');
-    console.log('scuse me: '+interruptionJSON.phrases[rand].comment);
+  //  console.log('scuse me: '+interruptionJSON.phrases[rand].comment);
 
 	msg.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
 	    
 	    msg.css({'display': 'none'});
-	    console.log('end animation');
+	   // console.log('end animation');
 
 	 });
 }
@@ -294,7 +373,7 @@ function initializeVerticalSwiper(n){
     ///because i swapped order of columns...
     if ( n==7 ) n=2;
     if ( typeof window['swiper_column'+n+'_nested'] == "undefined"){
-        console.log('vert swiper_column'+n+'_nested init');
+     //   console.log('vert swiper_column'+n+'_nested init');
 
         var count = 0;
        // var firstLevel = $('#column5 .swiper-wrapper').first().children('.swiper-slide')
@@ -302,7 +381,7 @@ function initializeVerticalSwiper(n){
             count++;
         });
 
-        console.log(' slide count='+count);
+      //  console.log(' slide count='+count);
 
       window['swiper_column'+n+'_nested'] = new Swiper('#column'+n+' .swiper-nested',{
         mode: 'vertical',
@@ -342,7 +421,7 @@ function initializeVerticalSwiper(n){
         
         onSlideClick: function(swiper){
           //  alert($(this).find('.project-info'));
-           console.log(swiper.clickedSlide);
+        //   console.log(swiper.clickedSlide);
             var curTray = $(swiper.clickedSlide).find('.project-tray');
             if ( curTray.hasClass('reveal')){
                 curTray.removeClass('reveal');
@@ -388,10 +467,10 @@ function initializeVerticalSwiper(n){
    
                  var previousOwl = $(swiper.getSlide(swiper.previousIndex)).find(".owl-carousel");
                  if ( previousOwl.data('owlCarousel') != 'undefined'){
-                    console.log('vert slider owl destroy');
+                 //   console.log('vert slider owl destroy');
                     previousOwl.data('owlCarousel').destroy();
                 }else{
-                    console.log('previous undefined');
+                  //  console.log('previous undefined');
                 }
 
  
@@ -450,11 +529,14 @@ function initLogo(){
 	if( 'ontouchstart' in window ){ var click = 'touchstart'; }
 	else { var click = 'click'; }
 
-	//selectPhrase();
+//	selectPhrase();
+
 	
 	$('.logo').on({
 		 click : function(){ 
 		 	/* do something... */ 
+            newVoice();
+            renderActive=true;
 
             if ($('body').hasClass('blog')){
 
@@ -464,6 +546,7 @@ function initLogo(){
 
     		 	$('#hello').fadeOut(100, function(){
     		  		selectPhrase();
+                   // newVoice();
     	            $('#hello').delay(200).fadeIn(500);
                     //console.log('logo click: active =' +swiperParent.activeIndex);
                     if (swiperParent.activeIndex != 0){
@@ -476,7 +559,7 @@ function initLogo(){
 		 } 
 	});
 
-
+/*
 	$('#logo').bind('touchstart mousedown', function(e){
 		$(this).addClass("touched");
 
@@ -485,7 +568,7 @@ function initLogo(){
 		$(this).delay(100).removeClass("touched");
 
 	});
-
+*/
 	$(".logo").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function(){
 	  $(this).removeClass("touched");
 	})
@@ -503,13 +586,65 @@ function initLogo(){
 
 	});
 
-    $('.logo').addClass("touched");
+  //  $('.logo').addClass("touched");
 
 
 }
 
+function initMessage(){
+
+
+
+    selectPhrase();
+    $('.swiper-parent').find('.salutation').addClass('speaking');
+    $('.swiper-parent').find('.salutation-comment').addClass('speaking');
+   // $('#hello').delay(200).fadeIn(500);
+
+   $('.strip').each(function(){
+      var $t = $(this);
+
+      var letters = $.trim($t.html()).split('');
+      
+      $t.html('');
+      
+      
+      $.each(letters, function(j, v){
+          v = (v == ' ') ? '&nbsp;' : v;
+          $('<span>' + $.trim(v) + '</span>').appendTo($t);
+        });
+
+
+
+      
+
+    });
+
+
+   setTimeout(revealLinks, 2000);
+  
+}
+
+function revealLinks(){
+
+    $('.strip').each(function(){
+
+        $(this).toggleClass('reveal');
+    })
+
+
+
+    for (i = 0; i < $('.strip span').length; i++) {
+            (function(ind) {
+              setTimeout(function(){
+                  $('.strip span:not(".letters")').eq(ind).toggleClass('animate');
+              }, ind * 50);
+            })(i);
+          }
+
+}
+
 function initSwiper(initial){
-	console.log('swiper goooooooo');
+	//console.log('swiper goooooooo');
 	var winHeight = $(window).height();
     var winWidth = $(window).width();
     $('.swiper-container').css({'height': winHeight});
@@ -523,6 +658,19 @@ function initSwiper(initial){
 	var slides;
 	var hint = 0;
 
+    $('#column1').on({
+         click : function(){ 
+            /* do something... */ 
+           
+            userHint();
+            if (hint==0)  newVoice();
+            addWords();
+
+            hint++;
+
+         } 
+    });
+/*
 	$('#column1').bind('touchstart mousedown', function(e){
         
 		//$('#column2').addClass("preview");
@@ -533,13 +681,14 @@ function initSwiper(initial){
 
         }
         userHint();
-        if ( $("#column1").hasClass('swiper-slide-active')){
-            $('#column3').addClass("preview");
-        }
+
+    //    msg.text = 'Continue';
+     //   newVoice();
+  
 		//if (hint==3) userHint();
 		hint++;
 	});
-
+*/
 	$('#column3').bind("webkitAnimationEnd mozAnimationEnd animationEnd", function(){
 	  $(this).removeClass("preview");
 	})
@@ -551,7 +700,7 @@ function initSwiper(initial){
             $('#column3').addClass("preview");
         }
         if(prevLeft === currentLeft && hint==0) {
-            console.log("I scrolled vertically.");
+           // console.log("I scrolled vertically.");
             userHint();
             hint++;
         } 
@@ -580,10 +729,17 @@ function initSwiper(initial){
 	    scrollbar: doScroll,
 	    onFirstInit: function(swiper){
 	    	//alert('first init');
-	    	selectPhrase();
-	    	$('.swiper-parent').find('.salutation').addClass('speaking');
-	    	$('.swiper-parent').find('.salutation-comment').addClass('speaking');
-            $('body').removeClass("thinking");
+	    	//selectPhrase();
+	    	
+           // $('body').removeClass("thinking");
+
+            // for threedee2
+             initGraphics();
+
+
+             setTimeout(newVoice, 1500);
+             setTimeout(initMessage, 2500);
+             
 
          
                 initializeVerticalSwiper(3);
@@ -600,13 +756,13 @@ function initSwiper(initial){
         onSlideChangeStart: function(swiper){
             if ( owl_active ==true){
                 var previousOwl = $(swiper.getSlide(swiper.previousIndex)).find(".swiper-nested .swiper-slide-active .owl-carousel").data('owlCarousel');
-                console.log('swiper.previousIndex='+swiper.previousIndex);
-                console.log('previousOwl='+previousOwl);
+             //   console.log('swiper.previousIndex='+swiper.previousIndex);
+             //   console.log('previousOwl='+previousOwl);
 
                 if (swiper.previousIndex != 'null' && previousOwl != null){
                     //debug
                   //  $(swiper.getSlide(swiper.previousIndex)).find('.swiper-nested .swiper-slide-active').css({'background-color': 'white'});
-                    console.log('>> parent previous ='+previousOwl);
+               //     console.log('>> parent previous ='+previousOwl);
                     previousOwl.destroy();
                 }
  
@@ -620,7 +776,7 @@ function initSwiper(initial){
 	    	var n = swiperParent.activeIndex;
 	    	
             var next = n+3;
-	    	console.log('END: swiperParent.activeIndex='+n+ ' :: NEXT = '+next);
+	    //	console.log('END: swiperParent.activeIndex='+n+ ' :: NEXT = '+next);
 	    	var col = $('.swiper-parent .swiper-slide-active').attr('id');
 
             if ( owl_active == true){
@@ -628,7 +784,7 @@ function initSwiper(initial){
                 //$('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active').css({'background-color': 'red'});
 
                 //$(swiper.activeSlide()).find('.owl-carousel').owlCarousel({
-                console.log('now active = '+ $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .owl-carousel'));
+             //   console.log('now active = '+ $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .owl-carousel'));
                 var owl = $('.full-slide.swiper-slide-active .swiper-nested .swiper-slide-active .owl-carousel').owlCarousel({
                     items : 1,
                     lazyLoad : true,
@@ -642,21 +798,33 @@ function initSwiper(initial){
                     touchDrag: false
                   }).trigger('owl.next');
 
-                console.log('****** initialized: '+owl.data('owlCarousel'))
+            //    console.log('****** initialized: '+owl.data('owlCarousel'))
 
                // owl.data('owlCarousel').next();
           
                 if ( n == 0 ){
                     $.address.value('/'+base);
+                   // msg.text = 'Welcome back';
+                //    newVoice();
                 }else if ( n ==1 ){
+                   // msg.text = 'Websites';
+                   // newVoice();
                     $.address.value("/"+base+"portfolio/websites");
                 }else if ( n ==2 ){
+                  //  msg.text = 'Apps';
+                  //  newVoice();
                     $.address.value("/"+base+"portfolio/apps");
                 }else if ( n ==3 ){
+                   // msg.text = 'Advertising';
+                   // newVoice();
                     $.address.value("/"+base+"portfolio/ads");
                 }else if ( n ==4 ){
+                   // msg.text = 'Viewing Info.';
+                   // newVoice();
                     $.address.value("/"+base+"about");
                 }else if ( n ==5 ){
+                   // msg.text = 'Viewing Text.';
+                   // newVoice();
                     $.address.value("/"+base+"blog");
                 }
                
@@ -671,13 +839,13 @@ function initSwiper(initial){
 
 	    },
         onResistanceBefore: function(swiper){
-            console.log('onResistanceBefore');
+          //  console.log('onResistanceBefore');
         },
         onResistanceAfter: function(swiper){
-            console.log('onResistanceAfter');
+          //  console.log('onResistanceAfter');
         },
         onMomentumBounce: function(swiper){
-            console.log('onMomentumBounce');
+           // console.log('onMomentumBounce');
         }
 
 
@@ -740,7 +908,7 @@ function initSwiper(initial){
 }
 
 function reInitAll(){
-    console.log('reinit all');
+   // console.log('reinit all');
     swiperParent.reInit();
     swiper_column2_nested.reInit();
     swiper_column3_nested.reInit();
@@ -828,7 +996,7 @@ function colorizePanels(color){
        // $(this).css({'background-color': colorEffect[i].toRgbString()});
       // newColor = tinycolor.darken(colorEffect[n+offset],10);
        newColor = tinycolor.darken(colorEffect[n+offset],10);
-       console.log('newColor='+newColor);
+     //  console.log('newColor='+newColor);
          $(this).css({'background-color': newColor});
         n++;
     });
@@ -861,106 +1029,27 @@ $(document).ready(function() {
     };
     $(window).bind("orientationchange", updateOrientation);
 
-   //  causeRepaintsOn = $(".swiper-slide, .swiper-container");
 
     $(window).resize(function(){
-        // $('.full-slide').css('width', '100%').css('width', '-=150px');
-       // console.log('resize');
-        //causeRepaintsOn.css("z-index", 1);
+
         var h = $(window).height();
         var w = $(window).width();
-       // $('.full-slide').css("width",w);
-        $('.swiper-container').css("height",h);
-        /*
-        var slide = $('.swiper-parent > .swiper-wrapper');
 
-            var offset = slide.offset();
-            swiperParent.getWrapperTranslate('x');
-*/
+        $('.swiper-container').css("height",h);
+
         if (w <= phablet) { 
             $('.full-slide').css('width', w);
-            /*
-            if (leftOffset == 100){
-                slide.css('-webkit-transform',"translate3d("+offset.left-100+"px, 0px, 0px)");
-                leftOffset == 0;
-            }
-            */
-          
+
         }else{
             
 
             $('.full-slide').css('width', w).css('width', '-=150px');
-            /*
-            if (leftOffset == 0){
-                slide.css('-webkit-transform',"translate3d("+offset.left+100+"px, 0px, 0px)");
-                leftOffset == 100;
-            }
-            */
+
         }
 
-        
-
-        
-
-      //  reInitAll();
-      /*$('.full-slide').each(function(){
-        $(this).css('width', '100%').css('width', '-=150px');
-      })
-*/
     });
 
    
-
-
-/*
-	var tiny = tinycolor('yellow');//tinycolor('#f2f200');
-	var numItems = 7;
-    var analogous = tinycolor.analogous(tiny,results = numItems, slices = numItems);
-    var mono = tinycolor.monochromatic(tiny,results = numItems, slices = numItems);
-    var colorEffect = tinycolor.analogous(tiny, 7);//tinycolor.analogous(tiny,results = numItems, slices = 5);
-*/
-/*
-    var tiny = tinycolor('yellow');//tinycolor('#f2f200');
-    var colorEffect = tinycolor.analogous(tiny, 7);
-    $('.blog-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	    $(this).css({'background-color': tinycolor.desaturate(colorEffect[i+1],20)});
-	});
-
-    tiny = tinycolor('orange');//tinycolor('#f2f200');
-    colorEffect = tinycolor.analogous(tiny, 7);
-	$('#column3 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	    $(this).css({'background-color': tinycolor.desaturate(colorEffect[i+1],20)});
-	});
-
-	tiny = tinycolor('red');//tinycolor('#f2f200');
-    colorEffect = tinycolor.analogous(tiny, 60);
-	$('#column4 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	    $(this).css({'background-color': tinycolor.desaturate(colorEffect[i+28],1)});
-	});
-*/
-/*
-blue gradations
-	tiny = tinycolor('green');//tinycolor('#f2f200');
-    colorEffect = tinycolor.analogous(tiny, 35);
-	$('#column5 .swiper-slide').each(function(i, obj) {
-	    //$(this).css({'background-color': analogous[i].toRgbString()});
-	    console.log(colorEffect[i]);
-	   // $(this).css({'background-color': colorEffect[i].toRgbString()});
-	    $(this).css({'background-color': colorEffect[(i)+23]});
-	});
-*/
-
-
-	
 
 
 
@@ -974,22 +1063,23 @@ blue gradations
     state = window.history.pushState !== undefined;
 
 	$.address.state(home_uri).init(function(event) {
-                console.log('init: ' + serialize({
+              /*  console.log('init: ' + serialize({
                     value: $.address.value(), 
                     path: $.address.path(),
                     pathNames: $.address.pathNames(),
                     parameterNames: $.address.parameterNames(),
                     queryString: $.address.queryString()
                 }));
+                */
             }).bind('change', function(event) {
-                console.log('change: ' + serialize(event, /parameters|parametersNames|path|pathNames|queryString|value/));
+               // console.log('change: ' + serialize(event, /parameters|parametersNames|path|pathNames|queryString|value/));
                 var names = $.map(event.pathNames, function(n) {
                     return n.substr(0, 1).toUpperCase() + n.substr(1);
                 }).concat(event.parameters.id ? event.parameters.id.split('.') : []);
                 var links = names.slice();
 
                 var match = links.length ? links.shift() + ' ' + links.join('.') : 'Home';
-                console.log("match ="+match);
+             //   console.log("match ="+match);
              
                 $('a').each(function() {
                     $(this).toggleClass('selected', $(this).text() == match);
@@ -997,29 +1087,75 @@ blue gradations
                 $.address.title([title].concat(names).join(' | '));
 				if ( $.address.path() == "/"+base){
                     swiperParent.swipeTo(0);
+                   // alert('home?')
+                 //  if (renderActive){
+                       // renderActive=true;
+                       // addWords();
+                    //    newVoice();
+
+                   // }
                     //initSwiper(0);
                 }else if ( $.address.path() == "/"+base+"portfolio/websites"){
 					swiperParent.swipeTo(1, 200);
+                    if (!renderActive){
+                        renderActive=true;
+                        addWords();
+                       // newVoice();
+
+                    }
+                   // renderActive=false;
                     //initSwiper(1);
 				}else if ( $.address.path() == "/"+base+"portfolio/apps"){
 					swiperParent.swipeTo(2, 200);
+                    renderActive=false;
                     //initSwiper(2);
 				}else if ( $.address.path() == "/"+base+"portfolio/ads"){
 					swiperParent.swipeTo(3, 200);
+                    renderActive=false;
                     //initSwiper(3);
 				}else if ( $.address.path() == "/"+base+"about"){
                     initializeVerticalSwiper(6);
 					swiperParent.swipeTo(4, 200);
+                    renderActive=false;
                     //initSwiper(4);
 				}if ( $.address.path() == "/"+base+"blog"){
                     initializeVerticalSwiper(7);
 
                     swiperParent.swipeTo(5, 200);
+                    renderActive=false;
                     //initSwiper(5);
                 }
                 //swiperParent.swipeTo(4);
                
             });
 	
-	
+	$('#goApps').on({
+         click : function(e){ 
+            e.preventDefault();
+            e.stopPropagation();
+            swiperParent.swipeTo(2, 200);
+            renderActive=false;
+
+         } 
+    });
+
+    $('#goBio').on({
+         click : function(e){ 
+            e.preventDefault();
+            e.stopPropagation();
+            swiperParent.swipeTo(4, 500);
+            renderActive=false;
+
+         } 
+    });
+
+    $('#goBlog').on({
+         click : function(e){ 
+            e.preventDefault();
+            e.stopPropagation();
+            swiperParent.swipeTo(5, 700);
+            renderActive=false;
+
+         } 
+    });
 });
