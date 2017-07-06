@@ -415,10 +415,10 @@ module.exports = function (grunt) {
         'concat',
         //'requirejs:dist',
         'cssmin',
-        'uglify',
+       // 'uglify',
         'copy:dist',
-        'modernizr',
-        'rev',
+       // 'modernizr',
+       // 'rev',
         'usemin',
         'htmlmin'
     ]);

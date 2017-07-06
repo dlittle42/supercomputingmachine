@@ -36,7 +36,6 @@
       <!-- build:css(.tmp) /styles/main.css -->
       <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
       <link rel="stylesheet" href="styles/idangerous.swiper.css">
-      <link rel="stylesheet" href="styles/idangerous.swiper.scrollbar.css">
       <link rel="stylesheet" href="styles/owl.carousel.css">
       <link rel="stylesheet" href="styles/owl.theme.css">
       <link rel="stylesheet" href="styles/owl.transitions.css">
@@ -47,16 +46,11 @@
       <!-- endbuild -->
 
 
-<!--
-        <link rel="stylesheet" href="bower_components/gallery-css/dist/gallery.prefixed.css">
-        <link rel="stylesheet" href="bower_components/gallery-css/gallery.theme.css">
-      -->
 
 
       <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Quicksand:400,700|Source+Code+Pro|Cantarell' rel='stylesheet' type='text/css'>
-      <!-- build:js /scripts/vendor/modernizr.js -->
-      <script src="bower_components/modernizr/modernizr.js"></script>
-      <!-- endbuild -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+ 
 
     </head>
     <body class="no-colorize no-highlight no-slideReveal thinking">
@@ -65,7 +59,7 @@
             <![endif]-->
 
             <div class="page-container">
-              <div id="container"></div>
+
               <header class="header">
             <!--
                <div class="circle unselectable" id="logo"><h1>Super Computing Machine</h1></div>
@@ -90,26 +84,22 @@
               <!--- FIRST COLUMN: INTRO ---------------------------------->
 
               <section class="swiper-slide yellow-slide full-slide color" id="column1">
-               <!-- <div id="hello">
-                  <h2 class="salutation">Hello there.</h2>
-                  <p class="salutation-comment">It's a fine day for parcheesi.</p>
-                </div>
-                -->
-              <div id="msg">
+
+                <div id="container"></div>
                 <div id="hello">
                   <h2 class="salutation">Hello there.</h2>
                   <p class="salutation-comment">It's a fine day for parcheesi.</p>
-                  <ul>
-                    <li><a href="#">Websites</a></li>
-                    <li><a href="#">Apps</a></li>
-                    <li><a href="#">Advertising</a></li>
-                    <li><a href="#">Bio</a></li>
-                    <li><a href="#">Blog</a></li>
-                  </ul>
                   
                 </div>
-              </div>
-                
+                <div id="quicklinks">
+                  <ul>
+                    <li><a href="/portfolio/websites" class="strip letters" id="goApps">Projects</a></li>
+                    <li><a href="/about" class="strip letters" id="goBio">Bio</a></li>
+                    <li><a href="/blog" class="strip letters" id="goBlog">Text</a></li>
+                  </ul>
+
+                </div>
+
 
               </section>
 
@@ -1194,7 +1184,7 @@
       </div>
 
     </div>
-    <div class="swiper-scrollbar"></div>
+   <!-- <div class="swiper-scrollbar"></div> -->
   </div>
 
   <!-- build:js /scripts/vendor.js -->
@@ -1203,6 +1193,10 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/85/three.min.js"></script>
+
+
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -1214,32 +1208,13 @@
     ga('create','UA-47337259-1');ga('send','pageview');
   </script>
 
-<!--
-        <script src="bower_components/jquery/jquery.js"></script>
-  <script src="scripts/idangerous.swiper-2.1.min.js"></script>
-  <script>
-  var swiperParent = new Swiper('.swiper-parent',{
-    pagination: '.pagination-parent',
-    paginationClickable: true,
-    loop: true,
-    slidesPerView: 3
-  })
-  var swiperNested1 = new Swiper('.swiper-nested',{
-    mode: 'vertical',
-    pagination: '.pagination-nested',
-    paginationClickable: true,
-    loop: true,
-    slidesPerView: 2
-  })
-  </script>
--->
+
 
 <!-- build:js /scripts/plugins.js -->
 
 <script src="scripts/tinycolor-min.js"></script>
 <script src="scripts/touche.min.js"></script> 
 <script src="scripts/idangerous.swiper.js"></script>
-<script src="scripts/idangerous.swiper.scrollbar.js"></script>
 <script src="scripts/owl.carousel.js"></script>
 <script src="scripts/jquery.address.js"></script>
 <script src="scripts/charming.min.js"></script>
@@ -1319,7 +1294,60 @@
   <script src="scripts/threedee.js"></script>
 
 
+  <script src="bower_components/three.js/examples/js/libs/ammo.js"></script>
+  <script src="bower_components/three.js/examples/js/Detector.js"></script>
+
+  <script src="bower_components/three.js/examples/js/utils/GeometryUtils.js"></script>
+
+
+
+  <script src="bower_components/three.js/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/ShaderPass.js"></script>
+  <script src="bower_components/three.js/examples/js/postprocessing/FilmPass.js"></script>
+
+
+
+<script src="bower_components/three.js/examples/js/shaders/FilmShader.js"></script>
+<script src="bower_components/three.js/examples/js/shaders/CopyShader.js"></script>
+
+
+  <!-- replace built-in triangulation with PnlTri.js -->
+  <script src="bower_components/three.js/examples/js/libs/pnltri.min.js"></script>
+  <script>
+      THREE.ShapeUtils.triangulateShape = ( function () {
+          var pnlTriangulator = new PNLTRI.Triangulator();
+          function removeDupEndPts(points) {
+
+              var l = points.length;
+
+              if ( l > 2 && points[ l - 1 ].equals( points[ 0 ] ) ) {
+
+                  points.pop();
+
+              }
+
+          }
+
+          return function triangulateShape( contour, holes ) {
+              // console.log("new Triangulation: PnlTri.js " + PNLTRI.REVISION );
+
+              removeDupEndPts( contour );
+              holes.forEach( removeDupEndPts );
+
+              return pnlTriangulator.triangulate_polygon( [ contour ].concat(holes) );
+          };
+      } )();
+  </script>
+
+  <script src="scripts/threedee2.js"></script>
+
+
+
 <!-- endbuild -->
+
+
+
 
 
 

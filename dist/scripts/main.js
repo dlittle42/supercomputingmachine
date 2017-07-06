@@ -266,52 +266,23 @@ var column1_JSON = {"phrases": [
     ]
 };
 
-
 function selectPhrase(column){
-
-    var rand = Math.floor(Math.random()*setting.phrases.length);
-    var salut = setting.phrases[rand].salutation;
-    var comment = setting.phrases[rand].comment;
-    console.log(salut)
-    console.log(comment)
-
-     txt.hide('fx7', function(){
-        console.log('hide complete')
-         $('.salutation-comment').text(comment);
-
-        $('h2').html(salut);
-       // console.log($('h1'))
-        txt._init();
-
-        txt.show('fx7', function(){
-          console.log('show complete')
-
-        });
-      });
- 
-
-
-
-
-
 
     if (!column) var column = 'column1';
 
    // console.log('newColumn = '+newColumn);
 
-
         var rand = Math.floor(Math.random()*column1_JSON.phrases.length)
       //  console.log(column1_JSON.phrases[rand].salutation);
       //  console.log(column1_JSON.phrases[rand].comment);
-
         $('#'+column+' .salutation').text(column1_JSON.phrases[rand].salutation);
         $('#'+column+' .salutation').fadeIn(200);
-        */
+        
         //timeoutSpinner = window.setTimeout(function(){
       //  $('.logo').addClass("touched");
        // }, 1000);
 
-        
+        $('.salutation-comment').text(column1_JSON.phrases[rand].comment);
 
         // speak quote ///
     //    msg.text = column1_JSON.phrases[rand].salutation + ". "+column1_JSON.phrases[rand].comment;
@@ -758,13 +729,13 @@ function initSwiper(initial){
 	    scrollbar: doScroll,
 	    onFirstInit: function(swiper){
 	    	//alert('first init');
-
 	    	//selectPhrase();
 	    	
            // $('body').removeClass("thinking");
 
             // for threedee2
              initGraphics();
+
 
 
              setTimeout(newVoice, 1500);
@@ -1082,11 +1053,12 @@ $(document).ready(function() {
    
 
 
+
     colorizePanels();
     initLogo();
-	initSwiper();
+	   initSwiper();
 
-    console.log('initGraphics and get address:')
+     console.log('initGraphics and get address:')
      console.log(window.location.pathname)
 
      if (window.location.pathname == "/portfolio/websites") {
@@ -1121,12 +1093,11 @@ $(document).ready(function() {
     }
 
 
-    
-
 
 	var init = true,
     home_uri = window.location.origin,
     state = window.history.pushState !== undefined;
+ 
 
 	$.address.state(home_uri).init(function(event) {
                 console.log('init: ' + serialize({
