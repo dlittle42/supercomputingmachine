@@ -306,7 +306,7 @@ function selectPhrase(column){
 
         $('#'+column+' .salutation').text(column1_JSON.phrases[rand].salutation);
         $('#'+column+' .salutation').fadeIn(200);
-        */
+      
         //timeoutSpinner = window.setTimeout(function(){
       //  $('.logo').addClass("touched");
        // }, 1000);
