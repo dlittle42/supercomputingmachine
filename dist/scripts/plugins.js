@@ -5937,7 +5937,7 @@ p=d.a,p!=f){for(;p!=f||1<g;)if(0<g)if(t=r.c.N(h[g],p,h[g-1]),Math.abs(t)<=r.c.n&
     var width = window.innerWidth;
     var height = window.innerHeight;
 
-    var letterMax = 300;
+    var letterMax = 200;
     var renderActive = true;
 
     var phrase = "supercomputingmachine";
@@ -6675,8 +6675,8 @@ p=d.a,p!=f){for(;p!=f||1<g;)if(0<g)if(t=r.c.N(h[g],p,h[g-1]),Math.abs(t)<=r.c.n&
         document.addEventListener( 'mousedown', onDocumentMouseDown, false );
         document.addEventListener( 'mouseup', onDocumentMouseUp, false );
 
-      	document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-        document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+     // 	document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+     //   document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 
 
 

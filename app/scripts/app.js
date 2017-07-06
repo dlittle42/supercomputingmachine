@@ -1057,20 +1057,54 @@ $(document).ready(function() {
     initLogo();
 	initSwiper();
 
+    console.log('initGraphics and get address:')
+     console.log(window.location.pathname)
+
+     if (window.location.pathname == "/portfolio/websites") {
+        swiperParent.swipeTo(1, 200);
+        if (!renderActive) {
+            renderActive = true;
+            addWords();
+            // newVoice();
+
+        }
+        // renderActive=false;
+        //initSwiper(1);
+    } else if (window.location.pathname == "/portfolio/apps") {
+        swiperParent.swipeTo(2, 200);
+        renderActive = false;
+        //initSwiper(2);
+    } else if (window.location.pathname == "/portfolio/ads") {
+        swiperParent.swipeTo(3, 200);
+        renderActive = false;
+        //initSwiper(3);
+    } else if (window.location.pathname == "/about") {
+        initializeVerticalSwiper(6);
+        swiperParent.swipeTo(4, 200);
+        renderActive = false;
+        //initSwiper(4);
+    }else if (window.location.pathname == "/blog") {
+        initializeVerticalSwiper(7);
+
+        swiperParent.swipeTo(5, 200);
+        renderActive = false;
+        //initSwiper(5);
+    }
+
 
 	var init = true,
     home_uri = window.location.origin,
     state = window.history.pushState !== undefined;
 
 	$.address.state(home_uri).init(function(event) {
-              /*  console.log('init: ' + serialize({
+                console.log('init: ' + serialize({
                     value: $.address.value(), 
                     path: $.address.path(),
                     pathNames: $.address.pathNames(),
                     parameterNames: $.address.parameterNames(),
                     queryString: $.address.queryString()
                 }));
-                */
+                
             }).bind('change', function(event) {
                 console.log('change: ' + serialize(event, /parameters|parametersNames|path|pathNames|queryString|value/));
                 var names = $.map(event.pathNames, function(n) {
