@@ -23,10 +23,11 @@
 	        };
 	    } )();
  // Detects webgl
-    if (!Detector.webgl) {
+ /*   if (!Detector.webgl) {
         Detector.addGetWebGLMessage();
         document.getElementById('container').innerHTML = "";
     }
+    */
 
     // - Global variables -
 
@@ -354,7 +355,7 @@
 
     }
 
-    function createText(letter, speed = 10) {
+    function createText(letter, speed) {
 
      //   console.log('createText = ' + letter)
 
@@ -777,79 +778,6 @@
 
     }
 
-
-
-    function addPhrase(word, origin, speed = 20) {
-
-        var letterMass = .35;
-        var letterRadius = 1; //0.4;
-
-        for (var j = 0; j < word.length; j++) {
-
-            var char = word.charAt(j)
-            var letter = createText(char);
-            //  var letter = createBox(char);
-
-          //  console.log(char)
-            var box = new THREE.Box3().setFromObject(letter);
-            //   console.log(box)
-            //	console.log( box.min, box.max, box.getSize().z );
-
-
-
-            //	var ball = new THREE.Mesh( new THREE.SphereGeometry( ballRadius, 14, 10 ), ballMaterial );
-            letter.castShadow = true;
-            letter.receiveShadow = true;
-            /*
-            				var sx = box.getSize().x,
-            					sy = box.getSize().y,
-            					sz = box.getSize().z;
-
-            				console.log(box.getSize())
-
-            				//var letterShape = new Ammo.btBoxShape( new Ammo.btVector3( sx * 0.5, sy * 0.5, sz * 0.5 ) );
-            				var letterShape = new Ammo.btBoxShape( new Ammo.btVector3( sx * 0.5, sy * 0.5, sz * 0.5 ) );
-
-            				console.log('lettershape ');
-            				console.log(letterShape)
-
-            				//letterShape.setMargin( margin );
-            				//letterShape.setMargin( 0 );
-
-
-            				//var letterShape = new Ammo.btSphereShape( letterRadius );
-            				//letterShape.setMargin( margin );
-
-            				//pos = new THREE.Vector3(10,0,10);
-            				if (!origin){
-            					pos.x = j + 20;
-            					pos.y = (4-cycle)*10;//Math.random()* 200 - 100;
-            					pos.z = camera.position.z;//Math.random()* 100;// - 100;
-            				}else{
-            					pos.copy( origin );
-            					pos.x = (j + 20) -20;
-            				}
-            				//pos.copy( raycaster.ray.direction );
-            				//pos.add( raycaster.ray.origin );
-            				quat.set( 0, 0, 0, 1 );
-            				var letterBody = createRigidBody( letter, letterShape, letterMass, pos, quat );
-            				//var letterBody = createRigidBody( letter, letterShape, letterMass, pos, quat );
-            				letterBody.setFriction( 0.9 );
-
-            				var direction = new THREE.Vector3();
-             				direction.subVectors( new THREE.Vector3(0,0,0), pos ).normalize() ;
-
-             				//pos.copy( raycaster.ray.direction );
-             				
-
-            				pos.copy( direction );
-            				//pos.multiplyScalar( 5+ (cycle*10) );
-            				pos.multiplyScalar(speed)
-            				letterBody.setLinearVelocity( new Ammo.btVector3( pos.x, pos.y, pos.z ) );
-
-            				*/
-        }
-    }
 
     function initInput() {
 

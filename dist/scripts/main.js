@@ -1072,7 +1072,7 @@ $(document).ready(function() {
                 }));
                 */
             }).bind('change', function(event) {
-                console.log('change: ' + serialize(event, /parameters|parametersNames|path|pathNames|queryString|value/));
+               // console.log('change: ' + serialize(event, /parameters|parametersNames|path|pathNames|queryString|value/));
                 var names = $.map(event.pathNames, function(n) {
                     return n.substr(0, 1).toUpperCase() + n.substr(1);
                 }).concat(event.parameters.id ? event.parameters.id.split('.') : []);
